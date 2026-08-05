@@ -28,6 +28,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Supabase-Laufzeitkonfiguration erzeugen
+        env:
+          SUPABASE_PUBLISHABLE_KEY: ${{ secrets.SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const config = {
+            supabaseUrl: 'https://rqvcbjomrjccyuchxpuh.supabase.co',
+            supabasePublishableKey: process.env.SUPABASE_PUBLISHABLE_KEY || '',
+            appName: 'Dokumentenmanagement Studio'
+          };
+          fs.writeFileSync('assets/config.js', `window.APP_CONFIG = Object.freeze(${JSON.stringify(config, null, 2)});\n`);
+          NODE
       - uses: actions/configure-pages@v5
         with:
           enablement: true
