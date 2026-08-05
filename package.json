@@ -1,0 +1,1 @@
+{"name":"dokumentmanagement-studio","private":true,"scripts":{"test":"node tests/smoke.test.js"}}
