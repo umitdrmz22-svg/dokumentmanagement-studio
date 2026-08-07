@@ -10,5 +10,5 @@
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render,{once:true});else render();
     return;
   }
-  document.write('<script src="assets/app-core.js?v=2"><\/script><script src="assets/app-workflow.js?v=2"><\/script><script src="assets/production-auth.js?v=2"><\/script>');
+  document.write('<script src="assets/app-core.js?v=4"><\/script><script src="assets/app-workflow.js?v=4"><\/script><script src="assets/production-auth.js?v=4"><\/script><script src="assets/production-enhancements.js?v=4"><\/script>');
 })();
