@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v7
       - name: JavaScript-Syntax prüfen
         run: |
-          for file in assets/config.js assets/app.js assets/app-core.js assets/app-workflow.js assets/production-auth.js; do node --check "$file"; done
+          for file in assets/config.js assets/app.js assets/app-core.js assets/werk-context.js assets/app-workflow.js assets/production-auth.js; do node --check "$file"; done
       - name: Deploy-Lizenzvertrag prüfen
         run: |
           test -f .github/workflows/ehs-module-gate.yml
