@@ -10,5 +10,5 @@
     if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',render,{once:true});else render();
     return;
   }
-  document.write('<script src="assets/app-core.js?v=5"><\/script><script src="assets/werk-context.js?v=1"><\/script><script src="assets/app-workflow.js?v=5"><\/script><script src="assets/production-auth.js?v=5"><\/script><script src="assets/production-enhancements.js?v=5"><\/script>');
+  document.write('<script src="assets/app-core.js?v=5"><\/script><script src="assets/werk-context.js?v=1"><\/script><script src="assets/origin-scope.js?v=1"><\/script><script src="assets/app-workflow.js?v=5"><\/script><script src="assets/production-auth.js?v=5"><\/script><script src="assets/production-enhancements.js?v=5"><\/script>');
 })();
