@@ -21,6 +21,8 @@ function ensureOriginScopeFields(){
 
 function scopeOf(d){return ['werk','germany','international'].includes(d?.scope)?d.scope:'werk';}
 function originLabel(d){
+  const snapshot=[d?.origin_werk_name,d?.origin_werk_code].filter(Boolean).join(' · ');
+  if(snapshot)return snapshot;
   const werk=currentDmsWerk();
   if(d?.origin_werk_id && werk?.id===d.origin_werk_id)return [werk.name,werk.code].filter(Boolean).join(' · ');
   if(d?.origin_werk_id)return 'Festgeschriebenes Herkunftswerk';
