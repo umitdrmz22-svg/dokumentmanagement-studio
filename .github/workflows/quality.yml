@@ -1,19 +1,32 @@
 name: Qualitätsprüfung
 
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch: {}
 
 permissions:
   contents: read
 
 jobs:
-  javascript:
+  qa3:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: JavaScript-Syntax prüfen
         run: |
-          for file in assets/config.js assets/app.js assets/app-core.js assets/app-workflow.js assets/production-auth.js; do
-            node --check "$file"
+          for file in assets/config.js assets/app.js assets/app-core.js assets/app-workflow.js assets/production-auth.js; do node --check "$file"; done
+      - name: Modul- und Lizenzvertrag prüfen
+        run: |
+          INDEX=$(for f in index.html public/index.html docs/index.html; do if [ -f "$f" ]; then echo "$f"; break; fi; done)
+          test -n "$INDEX"
+          grep -Fq 'defidev-legal/ehs-entitlement-gate.js' "$INDEX"
+          grep -Fq 'data-product-id="ehs_dokumentmanagement_monthly"' "$INDEX"
+      - name: Smoke-Test dreimal ausführen
+        run: |
+          for PASS in 1 2 3; do
+            echo "QA pass $PASS"
+            node tests/smoke.test.js
           done
