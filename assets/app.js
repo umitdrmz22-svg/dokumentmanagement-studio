@@ -11,7 +11,7 @@
       localStorage.removeItem(key);
       sessionStorage.setItem('dms-demo-force-seed','1');
     }
-    document.write('<script src="assets/app-core.js?v=8"><\/script><script src="assets/demo-enhancements.js?v=3"><\/script>');
+    document.write('<script src="assets/app-core.js?v=9"><\/script><script src="assets/demo-enhancements.js?v=4"><\/script>');
     return;
   }
   const cfg=window.APP_CONFIG||{};
