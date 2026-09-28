@@ -4,7 +4,7 @@
   if(demo){
     window.APP_CONFIG=Object.freeze({appName:'Dokumentenmanagement Studio · Präsentationsmodus',productionOnly:false,supabaseUrl:'',supabasePublishableKey:''});
     document.documentElement.dataset.appMode='demo';
-    document.write('<script src="assets/app-core.js?v=6"><\/script><script src="assets/demo-enhancements.js?v=1"><\/script>');
+    document.write('<script src="assets/app-core.js?v=7"><\/script><script src="assets/demo-enhancements.js?v=2"><\/script>');
     return;
   }
   const cfg=window.APP_CONFIG||{};
