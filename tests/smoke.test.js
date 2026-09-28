@@ -6,4 +6,10 @@ const sql=fs.readFileSync('supabase/002_document_management.sql','utf8');for(con
 // runtime selector guard: $ returns one element and must never be iterated
 const core=fs.readFileSync('assets/app-core.js','utf8');
 assert(!/\$\([^\n;]+\)\.forEach\(/.test(core.replace(/\$\$/g,'QQ')),'single-element $ selector must not use forEach');
+// demo loader must include workflow logic required by bindUi/render/detail actions
+const loader=fs.readFileSync('assets/app.js','utf8');
+assert(loader.includes('assets/app-workflow.js'),'demo loader must include workflow logic');
+for(const required of ['function openDetail(','function openCurrentDocument(','function askWorkflow(','function memberName(','function formatDate(']){
+  assert(fs.readFileSync('assets/app-workflow.js','utf8').includes(required),`missing workflow helper: ${required}`);
+}
 console.log('DMS smoke tests passed');
