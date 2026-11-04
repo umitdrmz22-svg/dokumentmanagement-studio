@@ -1,5 +1,5 @@
 import { catalog,initialTexts,initialBgn } from './generated-legal';
-import { fetchOfficialLaw } from './legal-parser';
+import { fetchOfficialLaw,parseOfficialArchive } from './legal-parser';
 import { digest,HttpError } from './security';
 const lawIds=new Set(catalog.map(x=>x.id));
 export async function updateMeta(db:D1Database){
@@ -42,4 +42,21 @@ export async function publishUpdate(db:D1Database,runId:string){
  const now=Math.floor(Date.now()/1000);const ops=[db.prepare('UPDATE legal_runs SET status=?,finished_at=? WHERE id=?').bind('complete',now,runId),db.prepare('INSERT INTO legal_settings (key,value) VALUES (?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value').bind('active_run',runId)];
  if(run.changed)ops.push(db.prepare('INSERT INTO legal_settings (key,value) VALUES (?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value').bind('last_changed',new Date().toISOString()));
  await db.batch(ops);return updateMeta(db);
+}
+
+export async function maintenanceStatus(db:D1Database){const meta=await updateMeta(db);const latestRun=await db.prepare('SELECT id,status,cursor,error FROM legal_runs ORDER BY started_at DESC LIMIT 1').first();return {...meta,latestRun};}
+export async function stageOfficialSource(db:D1Database,bucket:R2Bucket,runId:string,lawId:string,bytes:Uint8Array){
+ const run=await db.prepare('SELECT id,status,cursor,changed FROM legal_runs WHERE id=?').bind(runId).first<any>();
+ if(!run||run.status!=='running')throw new HttpError(409,'Kein aktiver Update-Lauf.');const item=catalog[run.cursor];
+ if(!item||item.id!==lawId)throw new HttpError(409,'Die Quelle entspricht nicht dem nächsten Eintrag des Update-Laufs.');
+ if(bytes.length>3_000_000)throw new HttpError(413,'Die Quelldatei überschreitet die festgelegte Grenze.');
+ try{
+  let payload:any,hash:string;
+  if(item.localPdf){if(String.fromCharCode(...bytes.slice(0,5))!=='%PDF-')throw Error('Ungültige PDF-Datei');hash=await digest(bytes);await bucket.put(`legal/${runId}/${item.id}.pdf`,bytes,{httpMetadata:{contentType:'application/pdf'}});payload={source:{id:item.id,url:item.url,sha256:hash,retrieved:new Date().toISOString()},pdf:true};}
+  else{payload=await parseOfficialArchive({...item,sourceFile:initialTexts[item.id].source.sourceFile},bytes,initialTexts[item.id].source.pdfUrl);hash=payload.source.sha256;}
+  const previous=await updateMeta(db);const old=previous.activeRun.startsWith('initial')?(initialTexts[item.id]?.source.sha256||initialBgn.find(x=>x.id===item.id)?.sha256):(await db.prepare('SELECT source_hash FROM legal_entries WHERE run_id=? AND law_id=?').bind(previous.activeRun,item.id).first<{source_hash:string}>())?.source_hash;
+  const changed=run.changed||old!==hash?1:0;
+  await db.batch([db.prepare('INSERT INTO legal_entries (run_id,law_id,payload,source_hash) VALUES (?,?,?,?)').bind(runId,item.id,JSON.stringify(payload),hash),db.prepare('UPDATE legal_runs SET cursor=?,changed=? WHERE id=? AND cursor=? AND status=?').bind(run.cursor+1,changed,runId,run.cursor,'running')]);
+  return {runId,lawId,sourceHash:hash,status:'running',cursor:run.cursor+1,total:catalog.length,readyToPublish:run.cursor+1===catalog.length};
+ }catch(e){const message=`${item.id}: ${String(e).slice(0,180)}`;await db.prepare('UPDATE legal_runs SET status=?,error=?,finished_at=? WHERE id=?').bind('failed',message,Math.floor(Date.now()/1000),runId).run();throw new HttpError(502,'Die Quelldatei konnte nicht vollständig geprüft werden: '+message);}
 }

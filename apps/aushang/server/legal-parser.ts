@@ -32,3 +32,10 @@ export async function fetchOfficialLaw(item:any,pdfUrl?:string){
  const url=`https://www.gesetze-im-internet.de/${item.slug}/xml.zip`;const response=await fetch(url,{redirect:'error',signal:AbortSignal.timeout(24000)});if(!response.ok)throw Error(`Source HTTP ${response.status}`);const zipped=new Uint8Array(await response.arrayBuffer());if(zipped.length>6_000_000)throw Error('Source archive too large');
  const files=unzipSync(zipped,{filter:file=>file.name.endsWith('.xml')&&file.originalSize<=18_000_000});const name=Object.keys(files).find(n=>n.endsWith('.xml'));if(!name)throw Error('Source XML missing from archive');const raw=files[name];return parseLegalXML(strFromU8(raw),{...item,pdfUrl},new Date().toISOString(),await digest(raw));
 }
+
+export async function parseOfficialArchive(item:any,archive:Uint8Array,pdfUrl?:string){
+ const expected=item.sourceFile;
+ const files=unzipSync(archive,{filter:file=>file.name===expected&&file.originalSize<=18_000_000});
+ const raw=files[expected];if(!raw)throw Error('Expected official XML file is missing');
+ return parseLegalXML(strFromU8(raw),{...item,pdfUrl},new Date().toISOString(),await digest(raw));
+}

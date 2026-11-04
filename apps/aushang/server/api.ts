@@ -1,7 +1,7 @@
 import { catalog } from './generated-legal';
 import { accountFor,createSession,requireAccount } from './accounts';
 import { bodyJSON,clean,constantEqual,digest,getSessionToken,hashPassword,HttpError,json,profile,randomToken,rateLimit,requireOrigin,sessionCookie,username,validatePassword,verifyPassword } from './security';
-import { beginUpdate,continueUpdate,publishUpdate,readLegalText,readPdf,updateMeta } from './updates';
+import { beginUpdate,continueUpdate,publishUpdate,readLegalText,readPdf,updateMeta,maintenanceStatus,stageOfficialSource } from './updates';
 export const TERMS_VERSION='2026-11-04-pilot';
 export function createAPI(env: {DB?:D1Database;BUCKET?:R2Bucket;AUTH_RATE_SECRET?:string;MAINTAINER_EMAIL?:string;SITE_ORIGIN?:string;MAINTENANCE_KEY_HASH?:string}) {
 function db(){if(!env.DB)throw new HttpError(503,'Der Dienst ist vorübergehend nicht verfügbar.');return env.DB;}
@@ -13,11 +13,17 @@ async function api(request:Request){try{
   // is obtained through get_site and is never stored here; only its hash is kept.
   const token=request.headers.get('x-aushang-service-key')||'';
   if(!env.MAINTENANCE_KEY_HASH||token.length<24||token.length>4096||!constantEqual(await digest(token),env.MAINTENANCE_KEY_HASH))throw new HttpError(403,'Dieser Wartungszugriff ist nicht autorisiert.');
-  const b=await bodyJSON(request);
-  if(b.action==='status')return json(await updateMeta(database));
+  const b=await bodyJSON(request,4_500_000);
+  if(b.action==='status')return json(await maintenanceStatus(database));
   if(b.action==='begin')return json(await beginUpdate(database,'authorized-service'));
-  if(!['continue','publish'].includes(b.action))throw new HttpError(400,'Unbekannte Wartungsaktion.');
+  if(!['continue','publish','stage'].includes(b.action))throw new HttpError(400,'Unbekannte Wartungsaktion.');
   const runId=clean(b.runId,'Update-Lauf',80);if(!/^[a-f0-9-]{36}$/.test(runId))throw new HttpError(400,'Ungültiger Update-Lauf.');
+  if(b.action==='stage'){
+   const lawId=clean(b.lawId,'Gesetz',40);const data=b.data;
+   if(typeof data!=='string'||data.length>4_100_000||!/^[A-Za-z0-9+/]*={0,2}$/.test(data))throw new HttpError(400,'Ungültige Quelldaten.');
+   let bytes:Uint8Array;try{bytes=Uint8Array.from(atob(data),c=>c.charCodeAt(0));}catch{throw new HttpError(400,'Ungültige Quelldaten.');}
+   if(!env.BUCKET)throw new HttpError(503,'Speicher nicht verfügbar.');return json(await stageOfficialSource(database,env.BUCKET,runId,lawId,bytes));
+  }
   if(b.action==='publish')return json(await publishUpdate(database,runId));
   if(!env.BUCKET)throw new HttpError(503,'Speicher nicht verfügbar.');return json(await continueUpdate(database,env.BUCKET,runId));
  }
