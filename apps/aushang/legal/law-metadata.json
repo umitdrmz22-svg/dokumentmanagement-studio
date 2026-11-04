@@ -1,0 +1,90 @@
+[
+  {
+    "id": "arbzg",
+    "short": "ArbZG",
+    "title": "Arbeitszeitgesetz",
+    "description": "Arbeitszeiten, Ruhepausen und Erholung.",
+    "category": "Arbeitszeit",
+    "icon": "clock",
+    "color": "blue",
+    "url": "https://www.gesetze-im-internet.de/arbzg/",
+    "basisUrl": "https://www.gesetze-im-internet.de/arbzg/__16.html",
+    "basis": "§ 16 Abs. 1 ArbZG"
+  },
+  {
+    "id": "agg",
+    "short": "AGG",
+    "title": "Allgemeines Gleichbehandlungsgesetz",
+    "description": "Schutz vor Benachteiligung am Arbeitsplatz.",
+    "category": "Gleichbehandlung",
+    "icon": "balance",
+    "color": "pink",
+    "url": "https://www.gesetze-im-internet.de/agg/",
+    "basisUrl": "https://www.gesetze-im-internet.de/agg/__12.html",
+    "basis": "§ 12 Abs. 5 AGG"
+  },
+  {
+    "id": "muschg",
+    "short": "MuSchG",
+    "title": "Mutterschutzgesetz",
+    "description": "Gesundheitsschutz während Schwangerschaft und Stillzeit.",
+    "category": "Besonderer Schutz",
+    "icon": "heart",
+    "color": "orange",
+    "url": "https://www.gesetze-im-internet.de/muschg_2018/",
+    "basisUrl": "https://www.gesetze-im-internet.de/muschg_2018/__26.html",
+    "basis": "§ 26 Abs. 1 MuSchG",
+    "conditional": true
+  },
+  {
+    "id": "jarbschg",
+    "short": "JArbSchG",
+    "title": "Jugendarbeitsschutzgesetz",
+    "description": "Besondere Regeln für Beschäftigte unter 18 Jahren.",
+    "category": "Besonderer Schutz",
+    "icon": "sprout",
+    "color": "green",
+    "url": "https://www.gesetze-im-internet.de/jarbschg/",
+    "basisUrl": "https://www.gesetze-im-internet.de/jarbschg/__47.html",
+    "basis": "§§ 47–48 JArbSchG",
+    "conditional": true
+  },
+  {
+    "id": "tvg",
+    "short": "TVG",
+    "title": "Tarifvertragsgesetz",
+    "description": "Grundlage für die Bekanntgabe anwendbarer Tarifverträge.",
+    "category": "Tarifrecht",
+    "icon": "file",
+    "color": "purple",
+    "url": "https://www.gesetze-im-internet.de/tvg/",
+    "basisUrl": "https://www.gesetze-im-internet.de/tvg/__8.html",
+    "basis": "§ 8 TVG",
+    "conditional": true
+  },
+  {
+    "id": "dguv1",
+    "short": "DGUV V1",
+    "title": "Grundsätze der Prävention",
+    "description": "Zugang zu den geltenden Vorschriften und Regeln.",
+    "category": "Arbeitsschutz",
+    "icon": "shield",
+    "color": "green",
+    "url": "https://www.bgn.de/praevention-arbeitshilfen/praxishilfen-service/vorschriften-und-arbeitssicherheitsinformationen/unfallverhuetungsvorschriften/DGUV-Vorschrift-1.pdf",
+    "basisUrl": "https://www.bgn.de/praevention-arbeitshilfen/praxishilfen-service/vorschriften-und-arbeitssicherheitsinformationen/unfallverhuetungsvorschriften/DGUV-Vorschrift-1.pdf",
+    "basis": "§ 12 DGUV Vorschrift 1"
+  },
+  {
+    "id": "arbschg",
+    "short": "ArbSchG",
+    "title": "Arbeitsschutzgesetz",
+    "description": "Grundlagen für Sicherheit und Gesundheit bei der Arbeit.",
+    "category": "Arbeitsschutz",
+    "icon": "briefcase",
+    "color": "blue",
+    "url": "https://www.gesetze-im-internet.de/arbschg/",
+    "basisUrl": "https://www.bgn.de/praevention-arbeitshilfen/praxishilfen-service/vorschriften-und-arbeitssicherheitsinformationen/unfallverhuetungsvorschriften/DGUV-Vorschrift-1.pdf",
+    "basis": "Zugang nach § 12 DGUV Vorschrift 1",
+    "supplement": true
+  }
+]
