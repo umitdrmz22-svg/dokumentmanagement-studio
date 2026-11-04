@@ -36,3 +36,7 @@ Die Buchsammlung enthält allgemeine Bekanntmachungspflichten **und** bedingte s
 ## GitHub-Ablage
 
 `examples/gesetzesaushang-osi/` im Branch `codex/gesetzesaushang-osi-demo` des Repositories `dokumentmanagement-studio`. Bestehende Module werden nicht verändert. Der Entwurf benötigt keine Pakete und keinen Build-Prozess.
+
+## Vorschau
+
+![Gesetzessammlung mit allen Titeln auf der Startseite](preview.jpg)
