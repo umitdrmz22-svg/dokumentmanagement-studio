@@ -105,3 +105,17 @@ test('Additive licensing migration preserves existing credentials, addresses, fa
  for(const file of files.slice(2))sql.exec(readFileSync(new URL('../drizzle/'+file,import.meta.url),'utf8'));
  const row=sql.prepare('SELECT * FROM accounts WHERE id=?').get('legacy-id')!;assert.equal(row.password_hash,'unchanged-password-hash');assert.equal(row.company,site.company);assert.equal(row.license_valid_until,null);assert.equal(sql.prepare('SELECT COUNT(*) AS n FROM favorites').get()?.n,1);assert.equal(sql.prepare('SELECT COUNT(*) AS n FROM devices').get()?.n,1);
 });
+
+test('Only the operator can grant an unpaid bounded demo without fabricating a payment or replacing active access',async()=>{
+ const app=setup();const registered=await app.api(request('/api/auth/register','POST',{...site,username:'demo-customer',password:'Demo-only lange Test-Passphrase!'}));assert.equal(registered.status,201);const c=cookie(registered);
+ const args={username:'demo-customer',reference:'Explicit operator-authorized product test',validUntil:new Date(Date.now()+14*86400000).toISOString().slice(0,10)};
+ assert.equal((await app.mcp(operatorCall('grant_demo_access',args,false))).status,403);
+ assert.equal((await app.mcp(operatorCall('grant_demo_access',{...args,paymentConfirmed:true}))).status,400);
+ assert.equal((await app.mcp(operatorCall('grant_demo_access',{...args,validUntil:new Date(Date.now()+45*86400000).toISOString().slice(0,10)}))).status,400);
+ const granted=await app.mcp(operatorCall('grant_demo_access',args));assert.equal(granted.status,200);const result=(await granted.json() as any).result.structuredContent;assert.equal(result.grantType,'demo');assert.equal(result.paymentConfirmed,false);assert.equal(result.paymentCaptured,false);
+ assert.equal((await app.api(request('/api/catalog','GET',undefined,c))).status,200);const event=app.sql.prepare('SELECT action,reference FROM access_events').get()!;assert.equal(event.action,'demo');assert.equal(event.reference,args.reference);
+ const before=app.sql.prepare('SELECT license_valid_until FROM accounts WHERE username=?').get(args.username)!.license_valid_until;
+ assert.equal((await app.mcp(operatorCall('grant_demo_access',args))).status,409);assert.equal(app.sql.prepare('SELECT license_valid_until FROM accounts WHERE username=?').get(args.username)!.license_valid_until,before);
+ const listed=await app.mcp(operatorCall('get_customer_requests'));assert.equal((await listed.json() as any).result.structuredContent.customers[0].grantType,'demo');
+ await app.mcp(operatorCall('suspend_customer_access',{username:args.username,reference:'End test'}));assert.equal((await app.mcp(operatorCall('grant_demo_access',args))).status,409);
+});

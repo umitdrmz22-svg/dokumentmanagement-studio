@@ -10,3 +10,7 @@
 Kontopasswörter werden nur gesalzen gehasht in D1 gespeichert. Der Anbieter kann sie nicht auslesen. Private Geräteschlüssel verlassen den Browser nicht. Preis- und Bankdaten gehören nicht in Geräte-Links. Werbung ist aktuell nicht eingebunden.
 
 Der Portalzugang ist eine technische Dienstleistung. Für amtliche Gesetzes- und Verordnungstexte ist § 5 UrhG zu beachten: https://www.gesetze-im-internet.de/urhg/__5.html . Der Dienst erhebt kein exklusives Urheberrecht an diesen Texten. Konkrete Verträge, Zahlungs-/Rechnungsprozess und Hosting-/Datenschutzbedingungen sind vor entgeltlichem Vertrieb zu vervollständigen.
+
+## Kostenfreier Testzugang
+
+Für eine ausdrücklich gewünschte Vorführung darf der Betreiber `grant_demo_access` mit exaktem Benutzernamen, einem konkreten Testgrund (`reference`) und einem Enddatum innerhalb von 30 Kalendertagen verwenden. Beispiel: „Benutzer osiguenzburg für 14 Tage als kostenlose Demo freischalten.“ Es wird ein `demo`-Ereignis protokolliert, kein Zahlungseingang bestätigt. Aktive oder gesperrte Freigaben werden nicht überschrieben. Die normale kostenpflichtige Freischaltung behält ihre separate Zahlungsbestätigung. Der geschützte Betreiber-Dienstzugriff bietet dieselbe Funktion als `customer-demo`.

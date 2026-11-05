@@ -2,7 +2,7 @@ import { catalog } from './generated-legal';
 import { canRead,createSession,requireAccount,requireLicense,requirePasswordSession,sessionFor } from './accounts';
 import {challengeDevice,deviceId,enrollDevice,revokeDevice,unlockDevice} from './devices';
 import {sourceIndex} from './source-index';
-import {activateCustomer,customerRequests,suspendCustomer} from './licensing';
+import {activateCustomer,customerRequests,grantDemoAccess,suspendCustomer} from './licensing';
 import { bodyJSON,clean,constantEqual,digest,getSessionToken,hashPassword,HttpError,json,profile,randomToken,rateLimit,requireOrigin,sessionCookie,username,validatePassword,verifyPassword } from './security';
 import { beginUpdate,continueUpdate,publishUpdate,readLegalText,readPdf,updateMeta,maintenanceStatus,stageOfficialSource } from './updates';
 export const TERMS_VERSION='2026-11-05-access-request';
@@ -19,6 +19,7 @@ async function api(request:Request){try{
   const b=await bodyJSON(request,4_500_000);
   if(b.action==='customer-list')return json(await customerRequests(database));
   if(b.action==='customer-activate')return json(await activateCustomer(database,b,'authorized-site-operator'));
+  if(b.action==='customer-demo')return json(await grantDemoAccess(database,b,'authorized-site-operator'));
   if(b.action==='customer-suspend')return json(await suspendCustomer(database,b,'authorized-site-operator'));
   if(b.action==='status')return json(await maintenanceStatus(database));
   if(b.action==='begin')return json(await beginUpdate(database,'authorized-service'));
@@ -107,6 +108,7 @@ async function api(request:Request){try{
  throw new HttpError(404,'Diese Funktion wurde nicht gefunden.');
  }catch(e){if(e instanceof HttpError)return json({error:e.message},e.status,e.status===429?{'Retry-After':'900'}:{});return json({error:'Der Dienst ist vorübergehend nicht verfügbar. Bitte später erneut versuchen.'},503);}}
 const toolList=[
+ {name:'grant_demo_access',description:'Operator only: grant an explicitly unpaid, temporary test access to a pending or expired customer account. Does not confirm payment, collect money or overwrite an active/suspended license.',inputSchema:{type:'object',properties:{username:{type:'string'},reference:{type:'string',description:'Reason for the explicitly authorized free trial; no invoice or payment claim.'},validUntil:{type:'string',description:'Inclusive end date YYYY-MM-DD, Europe/Berlin, within 30 calendar days.'}},required:['username','reference','validUntil'],additionalProperties:false}},
  {name:'get_customer_requests',description:'Operator only: list customer access requests and license status. Never returns passwords or device private keys.',inputSchema:{type:'object',properties:{},additionalProperties:false}},
  {name:'activate_customer_access',description:'Operator only: activate the registered site after the operator explicitly confirms an already received payment and agreed end date. Does not collect money or create a subscription.',inputSchema:{type:'object',properties:{username:{type:'string'},paymentConfirmed:{type:'boolean'},reference:{type:'string',description:'Invoice/payment reference; do not include bank/card details.'},validUntil:{type:'string',description:'Agreed inclusive end date YYYY-MM-DD, Europe/Berlin.'}},required:['username','paymentConfirmed','reference','validUntil'],additionalProperties:false}},
  {name:'suspend_customer_access',description:'Operator only: suspend a customer account and revoke its sessions/device grants. Requires a concrete operator instruction.',inputSchema:{type:'object',properties:{username:{type:'string'},reference:{type:'string'}},required:['username','reference'],additionalProperties:false}},
@@ -125,6 +127,7 @@ async function mcp(request:Request){let id:any=null;try{
  const owner=request.headers.get('oai-authenticated-user-email')?.toLowerCase();if(!env.MAINTAINER_EMAIL||owner!==env.MAINTAINER_EMAIL.toLowerCase()||!request.headers.get('oai-authenticated-user-id'))throw new HttpError(403,'Nur der verifizierte Betreiber darf die Gesetzessammlung aktualisieren.');
  const database=db(),p=msg.params||{};let result:any;
  if(p.name==='get_customer_requests')result=await customerRequests(database);
+ else if(p.name==='grant_demo_access')result=await grantDemoAccess(database,p.arguments||{},owner);
  else if(p.name==='activate_customer_access')result=await activateCustomer(database,p.arguments||{},owner);
  else if(p.name==='suspend_customer_access')result=await suspendCustomer(database,p.arguments||{},owner);
  else if(p.name==='get_update_status')result=await updateMeta(database);
