@@ -8,7 +8,15 @@ Die Registrierung erfolgt in zwei Schritten: Benutzername/Passwort, danach Firma
 
 Favoriten werden pro Konto in D1 gespeichert. Passwörter werden mit zufälligem Salt und scrypt (`N=32768,r=8,p=3`) gehasht. Wiederherstellung erfolgt über einen einmal angezeigten, hochentropischen Code; serverseitig wird nur dessen Hash gespeichert. Eine erfolgreiche Wiederherstellung rotiert den Code. Passwortänderung/Wiederherstellung beenden alte Sitzungen. Sitzungs-Token werden ebenfalls nur gehasht gespeichert und mit HttpOnly/Secure/SameSite-Cookies übertragen. Gleiche-Origin-Prüfungen schützen Schreibzugriffe, Datenbank-basierte Limits begrenzen Anmeldeversuche. Keine Passwörter oder Konto-Adressen werden in Git gespeichert.
 
-Die derzeitige Registrierung ist ein **Pilotzugang ohne Zahlungsbuchung**. Preise, Vertragslaufzeit, bezahlte Aktivierung und Zahlungsabwicklung sind nicht erfunden oder stillschweigend aktiviert. Diese sind vor entgeltlichem Vertrieb gesondert festzulegen. Die Standortzuordnung ist die technische Grundlage einer Standortlizenz; sie beweist keinen tatsächlichen Aufenthaltsort und ersetzt keinen kommerziellen Vertrag.
+Neue Registrierungen sind unverbindliche **Zugangsanfragen mit Status `pending`**. Sie öffnen weder Sammlung noch Gerätezugänge. Der Betreiber bestätigt einen tatsächlich eingegangenen Betrag anhand einer Rechnungs-/Zahlungsreferenz und setzt das gesondert vereinbarte Enddatum. Nur `active` mit zukünftigem `license_valid_until` erlaubt Texte, PDFs, Favoriten und Gerätezugänge; dies wird bei jedem Zugriff serverseitig geprüft. Auch frühere Pilotkonten erhalten dadurch nicht automatisch eine bezahlte Freischaltung. Preise und Zahlungswege sind bewusst nicht erfunden; es gibt derzeit keine automatische Zahlungsabwicklung oder Aboverlängerung.
+
+### Freischaltung durch den Betreiber
+
+Die durch Sites bestätigte Betreiberidentität darf über `get_customer_requests`, `activate_customer_access` und `suspend_customer_access` Kundenanfragen verwalten. Aktivieren erfordert ausdrücklich `paymentConfirmed: true`, den exakten registrierten Benutzernamen, eine konkrete `reference` und das vereinbarte `validUntil` als JJJJ-MM-TT (einschließlich, Europe/Berlin). Das Werkzeug zieht kein Geld ein. Freigaben/Sperren werden in `access_events` protokolliert. Kunden- und Gerätelesesitzungen dürfen diese Werkzeuge nicht aufrufen.
+
+Beispiel einer späteren Betreiberanweisung: „Zahlung zu Rechnung R-2026-001 für Benutzer firma-werk-01 ist eingegangen. Bis 31.12.2027 freischalten.“ Fehlende Zahlungsbestätigung, Referenz oder vereinbarte Laufzeit müssen vor der tatsächlichen Freigabe geklärt werden. Der geschützte Dienstzugriff bietet dieselben eng begrenzten Operationen `customer-list`, `customer-activate` und `customer-suspend`; hierfür gelten dieselben Credential-Regeln wie beim Quellenimport. Kein Schlüssel darf an Kunden weitergegeben oder in einen Link geschrieben werden.
+
+Für einen entgeltlichen Rollout sind das konkrete Angebot, Rechnungs-/Steuerprozess und die tatsächlichen Hosting-/Auftragsverarbeitungs-/Transferbedingungen gesondert festzulegen. Werbung ist aktuell nicht eingebunden. Die technische Standortzuordnung ersetzt keinen Vertrag und prüft keinen tatsächlichen Aufenthaltsort.
 
 ## Gerätegebundener Direktzugang
 
@@ -18,11 +26,11 @@ Die Verwaltung der Geräte und Passwörter erfordert eine normale Passwortsitzun
 
 Die Bindung gilt für das Browserprofil, nicht als Hardwareattestierung oder Kopierschutz gegen Betriebssystem-/Profilklonen. Browserdaten können gelöscht oder vom Browser entfernt werden; dann ist eine neue Freigabe nach Anmeldung nötig. Eine dauerhafte „niemals wieder anmelden“-Garantie wäre falsch. Eine gewöhnliche Internetunterbrechung oder ein Browser-/PC-Neustart entfernt den Schlüssel dagegen nicht. Private Browserfenster eignen sich nicht. Auf Windows wird eine `.url`-Verknüpfung ohne Geheimnis angeboten; der Nutzer verschiebt sie auf den Desktop und öffnet sie mit demselben Browserprofil. Das gerätespezifische PWA-Manifest startet unter demselben Geräte-Link.
 
-## Externe Quellenkontrolle über Copilot
+## Monatliche Quellenaktualisierung über ChatGPT
 
-Der bisherige ChatGPT-Auftrag `Automation_fba510e0ea6c81918ff85a91615ad462` wurde am 05.11.2026 auf ausdrücklichen Wunsch pausiert. Es ist derzeit kein automatischer Veröffentlichungszeitplan aktiv. Das Portal darf keine laufende monatliche Automatik mehr behaupten. `docs/copilot-monatliche-quellenkontrolle.md` enthält den geprüften Auftrag und die Einrichtungshinweise für einen vom Betreiber in Microsoft 365 Copilot zu planenden Kontrollbericht. Es wurde kein Copilot-Zeitplan über diese Sitzung angelegt.
+Der bereits verknüpfte Auftrag `Automation_fba510e0ea6c81918ff85a91615ad462` ist auf ausdrücklichen Wunsch des Betreibers wieder aktiviert: jeweils am 1. um 06:00, Europe/Berlin, nächster Termin 01.12.2026. Die vorübergehend gewünschte Copilot-Kontrolle wurde verworfen; weder ein Firmen-Copilot-Konto noch eine Microsoft-Verbindung werden verwendet. Der Auftrag bezieht den unterstützten Dienstzugriff frisch aus `get_site` und führt den produktiv geprüften `scripts/run-source-refresh.py` aus. Er veröffentlicht nur nach vollständigem Erfolg aller 44 Quellen. Konto-, Geräte-, Adress- und Favoritendaten werden nicht geändert. Das native Aufgabenobjekt ist für Aktivierung und Termine maßgeblich.
 
-`/quellen` und `/api/public/sources` liefern ausschließlich öffentliche Quellenmetadaten einschließlich der zuletzt im Portal veröffentlichten Fassungsangaben. Copilot kann diese mit den amtlichen Quellen vergleichen, ohne ein Kundenkonto, einen Geräte-Link oder einen Dienstschlüssel zu erhalten. Ein Bericht ändert weder Portaltexte noch das Erfolgsdatum. Eine tatsächliche Übernahme neuer Quelldateien erfordert weiterhin den autorisierten Schreibpfad.
+`/quellen` und `/api/public/sources` liefern ausschließlich öffentliche Quellenmetadaten einschließlich der zuletzt im Portal veröffentlichten Fassungsangaben. Sie enthalten keine Kunden- oder Gerätedaten. Ein bloßer Kontrollbericht verändert weder Portaltexte noch das Erfolgsdatum; die tatsächliche Quellenübernahme verwendet den autorisierten Schreibpfad.
 
 ## Quellenübernahme nach erfolgreicher Kontrolle
 
@@ -38,7 +46,7 @@ Unbeaufsichtigter Ablauf: Status lesen, Lauf beginnen, `continue_legal_update` m
 
 Der alternative Dienstzugriff `/api/maintenance` verwendet dieselben eng begrenzten Update-Operationen. Er benötigt die dokumentierte Sites-Dienstberechtigung plus eine zusätzliche anwendungsseitige Hash-Prüfung. Der unveränderte Dienstschlüssel wird nur zur Laufzeit mit `get_site` bezogen und ausschließlich an genau diese Site übermittelt; weder Quellcode noch Aufgaben-Prompt enthalten ihn. `scripts/run-source-refresh.py` lädt alle 44 offiziellen Dateien und führt den gesamten Ablauf über diesen geprüften Dienstzugriff aus. Es folgt keinen Weiterleitungen und sendet Dienstzugangsdaten ausschließlich an die feste Site-Adresse, niemals an Gesetzesquellen.
 
-Der technische Dienstzugriff bleibt für eine autorisierte spätere Quellenübernahme erhalten. Eine externe Copilot-Kontrolle erhält diesen Zugriff nicht automatisch; weder ein Bericht noch ein neuer Kontrolltermin setzt ein Erfolgsdatum.
+Die monatliche Aufgabe bezieht den unterstützten Dienstzugriff frisch aus `get_site`; im Prompt stehen keine Zugangsdaten. Ein Bericht oder neuer Kontrolltermin allein setzt kein Erfolgsdatum.
 
 ## Daten und Datenschutz
 

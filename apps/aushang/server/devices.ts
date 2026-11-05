@@ -16,7 +16,7 @@ export async function enrollDevice(db:D1Database,accountId:string,body:Record<st
  return {id,label,path:'/geraet/'+id};
 }
 export async function challengeDevice(db:D1Database,request:Request,id:string){
- const active=await db.prepare('SELECT d.id FROM devices d JOIN accounts a ON a.id=d.account_id WHERE d.id=? AND d.revoked_at IS NULL AND a.access_status!=?').bind(id,'suspended').first();
+ const active=await db.prepare('SELECT d.id FROM devices d JOIN accounts a ON a.id=d.account_id WHERE d.id=? AND d.revoked_at IS NULL AND a.access_status=? AND a.license_valid_until>?').bind(id,'active',Math.floor(Date.now()/1000)).first();
  if(!active)throw new HttpError(403,'Dieser Gerätezugang ist nicht freigeschaltet.');
  const now=Math.floor(Date.now()/1000),challengeId=crypto.randomUUID();
  const message=`aushang-device-v1|${new URL(request.url).origin}|${id}|${challengeId}|${randomToken()}`;
@@ -26,7 +26,7 @@ export async function challengeDevice(db:D1Database,request:Request,id:string){
 export async function unlockDevice(db:D1Database,request:Request,body:Record<string,unknown>){
  const id=deviceId(body.deviceId),challengeId=deviceId(body.challengeId),now=Math.floor(Date.now()/1000);
  const signature=body.signature;if(typeof signature!=='string'||!(/^[A-Za-z0-9_-]{86}$/.test(signature)))throw new HttpError(401,'Der Gerätenachweis ist ungültig.');
- const row=await db.prepare('SELECT c.message,d.public_key,d.account_id FROM device_challenges c JOIN devices d ON d.id=c.device_id JOIN accounts a ON a.id=d.account_id WHERE c.id=? AND c.device_id=? AND c.expires_at>? AND d.revoked_at IS NULL AND a.access_status!=?').bind(challengeId,id,now,'suspended').first<{message:string;public_key:string;account_id:string}>();
+ const row=await db.prepare('SELECT c.message,d.public_key,d.account_id FROM device_challenges c JOIN devices d ON d.id=c.device_id JOIN accounts a ON a.id=d.account_id WHERE c.id=? AND c.device_id=? AND c.expires_at>? AND d.revoked_at IS NULL AND a.access_status=? AND a.license_valid_until>?').bind(challengeId,id,now,'active',now).first<{message:string;public_key:string;account_id:string}>();
  if(!row)throw new HttpError(401,'Der Gerätenachweis ist abgelaufen oder nicht mehr gültig.');
  const key=await crypto.subtle.importKey('jwk',JSON.parse(row.public_key),{name:'ECDSA',namedCurve:'P-256'},false,['verify']);
  const bytes=Uint8Array.from(atob(signature.replace(/-/g,'+').replace(/_/g,'/')+'=='),c=>c.charCodeAt(0));
