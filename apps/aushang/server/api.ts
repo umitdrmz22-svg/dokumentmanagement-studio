@@ -1,5 +1,7 @@
 import { catalog } from './generated-legal';
-import { accountFor,createSession,requireAccount } from './accounts';
+import { createSession,requireAccount,requirePasswordSession,sessionFor } from './accounts';
+import {challengeDevice,deviceId,enrollDevice,revokeDevice,unlockDevice} from './devices';
+import {sourceIndex} from './source-index';
 import { bodyJSON,clean,constantEqual,digest,getSessionToken,hashPassword,HttpError,json,profile,randomToken,rateLimit,requireOrigin,sessionCookie,username,validatePassword,verifyPassword } from './security';
 import { beginUpdate,continueUpdate,publishUpdate,readLegalText,readPdf,updateMeta,maintenanceStatus,stageOfficialSource } from './updates';
 export const TERMS_VERSION='2026-11-04-pilot';
@@ -28,12 +30,21 @@ async function api(request:Request){try{
   if(!env.BUCKET)throw new HttpError(503,'Speicher nicht verfügbar.');return json(await continueUpdate(database,env.BUCKET,runId));
  }
  if(request.method==='GET'&&path==='/api/public/meta')return json(await updateMeta(database));
+ if(request.method==='GET'&&path==='/api/public/sources')return json(await sourceIndex(database));
  if(request.method==='GET'&&path==='/api/me'){
-  const account=await accountFor(database,request);if(!account)return json({account:null,meta:await updateMeta(database)});
+  const session=await sessionFor(database,request);if(!session)return json({account:null,access:null,meta:await updateMeta(database)});const account=session.account;
   const favoriteRows=await database.prepare('SELECT law_id FROM favorites WHERE account_id=? ORDER BY law_id').bind(account.id).all<{law_id:string}>();
-  return json({account,favorites:(favoriteRows.results||[]).map(x=>x.law_id),meta:await updateMeta(database)});
+  return json({account,access:{kind:session.kind,deviceId:session.deviceId},favorites:(favoriteRows.results||[]).map(x=>x.law_id),meta:await updateMeta(database)});
  }
  if(['POST','PUT','PATCH','DELETE'].includes(request.method))requireOrigin(request);
+ if(request.method==='POST'&&path==='/api/device/challenge'){
+  const b=await bodyJSON(request);await rateLimit(database,request,rateSecret(),'device-ip','all',120);
+  return json(await challengeDevice(database,request,deviceId(b.deviceId)));
+ }
+ if(request.method==='POST'&&path==='/api/device/unlock'){
+  const b=await bodyJSON(request);await rateLimit(database,request,rateSecret(),'device-unlock-ip','all',120);
+  const result=await unlockDevice(database,request,b);return json({ok:true},200,{'Set-Cookie':result.cookie});
+ }
  if(request.method==='POST'&&path==='/api/auth/register'){
   const b=await bodyJSON(request);const u=username(b.username),password=validatePassword(b.password);const p=profile(b);if(b.acceptSiteScope!==true||b.businessOnly!==true)throw new HttpError(400,'Bitte den geschäftlichen Einsatz und den Standortbezug bestätigen.');
   await rateLimit(database,request,rateSecret(),'register','all',8,86400);
@@ -59,10 +70,22 @@ async function api(request:Request){try{
   const b=await bodyJSON(request),u=username(b.username),password=validatePassword(b.newPassword);await rateLimit(database,request,rateSecret(),'recover-ip','all',15);await rateLimit(database,request,rateSecret(),'recover-user',u,5);
   const row=await database.prepare('SELECT id,recovery_hash FROM accounts WHERE username=?').bind(u).first<any>();const code=typeof b.recoveryCode==='string'?b.recoveryCode.trim().toLowerCase():'';
   if(!row||!(/^[a-f0-9]{64}$/.test(code))||!constantEqual(await digest(code),row.recovery_hash))throw new HttpError(401,'Benutzername oder Wiederherstellungscode ist nicht korrekt.');
-  const recoveryCode=randomToken();await database.batch([database.prepare('UPDATE accounts SET password_hash=?,recovery_hash=? WHERE id=?').bind(await hashPassword(password),await digest(recoveryCode),row.id),database.prepare('DELETE FROM sessions WHERE account_id=?').bind(row.id)]);
+  const recoveryCode=randomToken();await database.batch([database.prepare('UPDATE accounts SET password_hash=?,recovery_hash=? WHERE id=?').bind(await hashPassword(password),await digest(recoveryCode),row.id),database.prepare('DELETE FROM sessions WHERE account_id=?').bind(row.id),database.prepare('UPDATE devices SET revoked_at=? WHERE account_id=? AND revoked_at IS NULL').bind(Math.floor(Date.now()/1000),row.id)]);
   return json({ok:true,recoveryCode},200,{'Set-Cookie':await createSession(database,request,row.id,false)});
  }
  const account=await requireAccount(database,request);
+ if(path==='/api/devices'&&request.method==='GET'){
+  await requirePasswordSession(database,request);
+  const rows=await database.prepare('SELECT id,label,created_at AS createdAt,last_used_at AS lastUsedAt FROM devices WHERE account_id=? AND revoked_at IS NULL ORDER BY created_at DESC').bind(account.id).all();return json({devices:rows.results||[]});
+ }
+ if(path==='/api/devices'&&request.method==='POST'){
+  await requirePasswordSession(database,request);await rateLimit(database,request,rateSecret(),'device-enroll',account.id,20,86400);
+  return json(await enrollDevice(database,account.id,await bodyJSON(request)),201);
+ }
+ const deviceMatch=path.match(/^\/api\/devices\/([a-f0-9-]+)$/);
+ if(deviceMatch&&request.method==='DELETE'){
+  await requirePasswordSession(database,request);await revokeDevice(database,account.id,deviceId(deviceMatch[1]));return json({ok:true});
+ }
  if(request.method==='GET'&&path==='/api/catalog')return json({catalog});
  const match=path.match(/^\/api\/texts\/([a-z0-9]+)$/);if(request.method==='GET'&&match)return json(await readLegalText(database,match[1]));
  const pdf=path.match(/^\/api\/pdf\/(dguv[123])$/);if(request.method==='GET'&&pdf){if(!env.BUCKET)throw new HttpError(503,'Dokumentendienst nicht verfügbar.');return readPdf(database,env.BUCKET,pdf[1]);}
@@ -71,9 +94,10 @@ async function api(request:Request){try{
   await database.batch([database.prepare('DELETE FROM favorites WHERE account_id=?').bind(account.id),...ids.map(id=>database.prepare('INSERT INTO favorites (account_id,law_id) VALUES (?,?)').bind(account.id,id))]);return json({favorites:ids});
  }
  if(request.method==='POST'&&path==='/api/auth/password'){
+  await requirePasswordSession(database,request);
   const b=await bodyJSON(request),password=validatePassword(b.newPassword);await rateLimit(database,request,rateSecret(),'password',account.id,5);
   const row=await database.prepare('SELECT password_hash FROM accounts WHERE id=?').bind(account.id).first<{password_hash:string}>();if(!row||typeof b.currentPassword!=='string'||b.currentPassword.length>128||!await verifyPassword(b.currentPassword,row.password_hash))throw new HttpError(401,'Das aktuelle Passwort ist nicht korrekt.');
-  await database.batch([database.prepare('UPDATE accounts SET password_hash=? WHERE id=?').bind(await hashPassword(password),account.id),database.prepare('DELETE FROM sessions WHERE account_id=?').bind(account.id)]);return json({ok:true},200,{'Set-Cookie':await createSession(database,request,account.id,false)});
+  await database.batch([database.prepare('UPDATE accounts SET password_hash=? WHERE id=?').bind(await hashPassword(password),account.id),database.prepare('DELETE FROM sessions WHERE account_id=?').bind(account.id),database.prepare('UPDATE devices SET revoked_at=? WHERE account_id=? AND revoked_at IS NULL').bind(Math.floor(Date.now()/1000),account.id)]);return json({ok:true},200,{'Set-Cookie':await createSession(database,request,account.id,false)});
  }
  throw new HttpError(404,'Diese Funktion wurde nicht gefunden.');
  }catch(e){if(e instanceof HttpError)return json({error:e.message},e.status,e.status===429?{'Retry-After':'900'}:{});return json({error:'Der Dienst ist vorübergehend nicht verfügbar. Bitte später erneut versuchen.'},503);}}

@@ -10,7 +10,21 @@ Favoriten werden pro Konto in D1 gespeichert. Passwörter werden mit zufälligem
 
 Die derzeitige Registrierung ist ein **Pilotzugang ohne Zahlungsbuchung**. Preise, Vertragslaufzeit, bezahlte Aktivierung und Zahlungsabwicklung sind nicht erfunden oder stillschweigend aktiviert. Diese sind vor entgeltlichem Vertrieb gesondert festzulegen. Die Standortzuordnung ist die technische Grundlage einer Standortlizenz; sie beweist keinen tatsächlichen Aufenthaltsort und ersetzt keinen kommerziellen Vertrag.
 
-## Monatliche Quellenaktualisierung
+## Gerätegebundener Direktzugang
+
+„Anmelden & Geräte-Link erstellen“ erzeugt nach erfolgreicher Passwortanmeldung einen eigenen Link für genau dieses Browserprofil; ein bereits vorhandener lokaler Link wird wiederverwendet. „Nur Zugang verwalten“ legt keine dauerhafte Freigabe an. Zusätzlich kann unter „Mein Zugang“ ein Geräte-Link eingerichtet werden. Ein nicht exportierbarer ECDSA-P-256-Privatschlüssel liegt als CryptoKey in IndexedDB; der Server erhält nur den öffentlichen Schlüssel. Der Link enthält ausschließlich eine öffentliche Geräte-ID. Ein kopierter Link genügt auf einem anderen Browser nicht: Eine kurzlebige, einmal verwendbare Challenge muss mit dem lokalen Schlüssel signiert werden. Nach einem Cookie-Ablauf kann dieser Nachweis selbstständig eine neue, auf Lesen und Favoriten begrenzte Sitzung erzeugen. Es gibt auf `/geraet/<id>` kein Passwortformular; Netzwerkfehler zeigen eine Verbindungsanzeige und nach dem `online`-Ereignis wird automatisch erneut geöffnet.
+
+Die Verwaltung der Geräte und Passwörter erfordert eine normale Passwortsitzung. Einzelne Freigaben können dort widerrufen werden; Passwortänderung oder Wiederherstellung widerrufen sämtliche bestehenden Gerätefreigaben. Bestehende Kundenkonten und vorherige Sitzungen bleiben durch die additive Datenbankmigration erhalten.
+
+Die Bindung gilt für das Browserprofil, nicht als Hardwareattestierung oder Kopierschutz gegen Betriebssystem-/Profilklonen. Browserdaten können gelöscht oder vom Browser entfernt werden; dann ist eine neue Freigabe nach Anmeldung nötig. Eine dauerhafte „niemals wieder anmelden“-Garantie wäre falsch. Eine gewöhnliche Internetunterbrechung oder ein Browser-/PC-Neustart entfernt den Schlüssel dagegen nicht. Private Browserfenster eignen sich nicht. Auf Windows wird eine `.url`-Verknüpfung ohne Geheimnis angeboten; der Nutzer verschiebt sie auf den Desktop und öffnet sie mit demselben Browserprofil. Das gerätespezifische PWA-Manifest startet unter demselben Geräte-Link.
+
+## Externe Quellenkontrolle über Copilot
+
+Der bisherige ChatGPT-Auftrag `Automation_fba510e0ea6c81918ff85a91615ad462` wurde am 05.11.2026 auf ausdrücklichen Wunsch pausiert. Es ist derzeit kein automatischer Veröffentlichungszeitplan aktiv. Das Portal darf keine laufende monatliche Automatik mehr behaupten. `docs/copilot-monatliche-quellenkontrolle.md` enthält den geprüften Auftrag und die Einrichtungshinweise für einen vom Betreiber in Microsoft 365 Copilot zu planenden Kontrollbericht. Es wurde kein Copilot-Zeitplan über diese Sitzung angelegt.
+
+`/quellen` und `/api/public/sources` liefern ausschließlich öffentliche Quellenmetadaten einschließlich der zuletzt im Portal veröffentlichten Fassungsangaben. Copilot kann diese mit den amtlichen Quellen vergleichen, ohne ein Kundenkonto, einen Geräte-Link oder einen Dienstschlüssel zu erhalten. Ein Bericht ändert weder Portaltexte noch das Erfolgsdatum. Eine tatsächliche Übernahme neuer Quelldateien erfordert weiterhin den autorisierten Schreibpfad.
+
+## Quellenübernahme nach erfolgreicher Kontrolle
 
 Der unbeaufsichtigte Auftrag lädt die freigegebenen HTTPS-Quellen in seiner Ausführungsumgebung. Er übermittelt ausschließlich diese öffentlichen Quelldateien an den geschützten Wartungszugriff; die Site prüft ZIP-Inhalt, Dokumentkennung, ausgewählte Paragraphen, XML/PDF-Struktur und Hash-Rücklesung. Die Laufzeit speichert vollständige Versionen der öffentlichen Rechtsquellen in D1 und originale BGN-PDFs in R2. Eine neue Version wird zunächst separat aufgebaut. Nur wenn alle 44 Quellen vollständig geladen und geprüft wurden, wird die aktive Version atomar umgeschaltet. Ein fehlgeschlagener Lauf verändert weder den aktiven Stand noch das Datum der letzten erfolgreichen Prüfung. Quelldatei-Identifikatoren, ausgewählte Paragraphen, XML-Struktur, Quellen-Hashes, Grenzen und PDF-Signaturen werden geprüft. Die Transformation lässt nur feste HTML-Tags zu; Quellattribute und Scripts werden nicht ausgegeben.
 
@@ -24,7 +38,7 @@ Unbeaufsichtigter Ablauf: Status lesen, Lauf beginnen, `continue_legal_update` m
 
 Der alternative Dienstzugriff `/api/maintenance` verwendet dieselben eng begrenzten Update-Operationen. Er benötigt die dokumentierte Sites-Dienstberechtigung plus eine zusätzliche anwendungsseitige Hash-Prüfung. Der unveränderte Dienstschlüssel wird nur zur Laufzeit mit `get_site` bezogen und ausschließlich an genau diese Site übermittelt; weder Quellcode noch Aufgaben-Prompt enthalten ihn. `scripts/run-source-refresh.py` lädt alle 44 offiziellen Dateien und führt den gesamten Ablauf über diesen geprüften Dienstzugriff aus. Es folgt keinen Weiterleitungen und sendet Dienstzugangsdaten ausschließlich an die feste Site-Adresse, niemals an Gesetzesquellen.
 
-Die monatliche Aufgabe ist in Sites mit diesem Projekt verknüpft; die tatsächlich zurückgegebenen Planmetadaten sind maßgeblich. Sie bezieht den unterstützten Dienstzugriff aus `get_site` und verwendet den geprüften Aktualisierungspfad, keine im Prompt hinterlegten Zugangsdaten.
+Der technische Dienstzugriff bleibt für eine autorisierte spätere Quellenübernahme erhalten. Eine externe Copilot-Kontrolle erhält diesen Zugriff nicht automatisch; weder ein Bericht noch ein neuer Kontrolltermin setzt ein Erfolgsdatum.
 
 ## Daten und Datenschutz
 
