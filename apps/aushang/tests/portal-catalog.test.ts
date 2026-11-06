@@ -19,4 +19,6 @@ test('conditional notice rules and topic references point at distinct available 
  const verm=portalCatalog.find(x=>x.id==='vermbg5')!;assert.equal(verm.hosted,false);assert.match(verm.noticeRules[0].basis,/11/);
  assert.ok(portalCatalog.find(x=>x.id==='agg')!.noticeRules.some(x=>x.basis.includes('12')));
  assert.equal(portalCatalog.find(x=>x.id==='iso14001')?.hosted,false);
+ assert.ok(portalCatalog.find(x=>x.id==='ladschlg')!.noticeRules.some(x=>x.basis.includes('21')));
+ assert.ok(portalCatalog.find(x=>x.id==='dguv3')!.noticeRules.some(x=>x.basis.includes('12')));
 });

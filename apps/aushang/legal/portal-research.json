@@ -786,6 +786,8 @@
       "id": "dguv-access",
       "catalogIds": [
         "dguv1",
+        "dguv2",
+        "dguv3",
         "arbschg"
       ],
       "title": "Zugang zu einschlägigen Arbeitsschutzvorschriften und Regeln",
@@ -983,6 +985,21 @@
       "trigger": "Baustelle voraussichtlich länger als 30 Arbeitstage mit mehr als 20 gleichzeitig Beschäftigten oder mit voraussichtlich mehr als 500 Personentagen.",
       "requiredContent": "Vorankündigung mit mindestens den Angaben des Anhangs I; spätestens zwei Wochen vor Einrichtung an die Behörde übermitteln, sichtbar auf der Baustelle aushängen und bei erheblichen Änderungen anpassen.",
       "note": "Gefordert ist die konkrete Baustellen-Vorankündigung. Der bloße Gesetzeslink oder eine Sammlung im Portal ersetzt diesen sichtbaren Baustellenaushang nicht.",
+      "kind": "conditional"
+    },
+    {
+      "id": "federal-retail-display",
+      "catalogIds": [
+        "ladschlg",
+        "sonntverkv"
+      ],
+      "title": "Bundesrechtliche Auslagepflicht in betroffenen Verkaufsstellen",
+      "basis": "§ 21 Abs. 1 Nr. 1 LadSchlG",
+      "url": "https://www.gesetze-im-internet.de/ladschlg/__21.html",
+      "trigger": "Nur soweit das Bundes-Ladenschlussrecht am Standort noch anwendbar ist und in der Verkaufsstelle regelmäßig mindestens ein Arbeitnehmer beschäftigt wird. Vorrangiges Landesrecht prüfen.",
+      "requiredContent": "Abdruck des Ladenschlussgesetzes und der dazu erlassenen, für die jeweilige Verkaufsstellenart einschlägigen Rechtsverordnungen auslegen oder aushängen. Die Sonntagsverkaufsverordnung ist nur bei entsprechender Anwendbarkeit umfasst.",
+      "delivery": "An geeigneter Stelle in der Verkaufsstelle auslegen oder aushängen.",
+      "note": "Bayern hat seit 01.08.2025 eigenes Ladenschlussrecht. Eine reine Produktionsstätte ist keine Verkaufsstelle. Der allgemeine Online-Link allein belegt keine Erfüllung der Auslagepflicht.",
       "kind": "conditional"
     }
   ]
