@@ -1,7 +1,14 @@
-# Prüfung der veröffentlichten Oberfläche
+# Prüfung des geschützten Werkportals
 
-Am 06.11.2026 wurden auf der veröffentlichten Seite die Startansicht mit 69 Rechtsquellen, Suchfilter (Vermögensbildung), A–Z-Filter (M), Aushang-Navigation, EMAS/ISO-Themenseite und der freiwillige Dokumentenbereich ohne Anmeldung geprüft. Das Bild zeigt die neue Startansicht. Die anschließend vervollständigte Zuordnung nach § 21 LadSchlG und § 12 DGUV Vorschrift 1 erweitert den Aushangbereich auf 27 Einträge; die Gestaltung bleibt unverändert.
+Die zuvor öffentliche Bibliotheksansicht wurde auf Wunsch des Betreibers durch eine reine Anmeldeseite ersetzt. Am 06.11.2026 wurde die veröffentlichte Version 11 geprüft:
 
-![Startseite](portal-2026-11-06.jpg)
+- Ohne Sitzung zeigt die Startseite nur Anmeldung, Zugangsanfrage, Wiederherstellung und rechtliche Anbieterinformationen.
+- Der direkte Link `/#alle-gesetze` öffnet keine Bibliothek.
+- `/api/public/catalog` liefert ohne Anmeldung ausschließlich eine Anmeldeaufforderung.
+- `/quellen` leitet ohne Sitzung zu `/#anmelden` weiter.
 
-28 automatisierte Tests sowie TypeScript-Prüfung und Produktionsbuild bestanden. Nach der abschließenden Ergänzung wurden die betroffenen Katalogtests und TypeScript erneut erfolgreich geprüft. Es wurden keine Produktivkonten angelegt, Passwörter verändert oder Firmendokumente hochgeladen.
+![Geschützte Anmeldung](anmeldung-2026-11-06.jpg)
+
+Die automatisierten Prüfungen verwenden die tatsächliche Oberfläche zusammen mit der API und temporären Testkonten: Passwortanmeldung und verifizierte Gerätesitzungen öffnen die Aushang-Startseite des registrierten Werks. Favoriten werden geladen; Listen-, Themen-, Dokument-, Konto- und Leseransichten besitzen eine Suche. Abmelden entfernt die geladenen Standortinhalte. Einschließlich der ergänzten UI-Szenarien bestehen 33 Tests; TypeScript und Produktionsbuild sind erfolgreich.
+
+Es wurden für die Browserkontrolle keine Produktivkonten angelegt oder Passwörter geändert. Die angemeldeten Abläufe wurden gegen die echte API im isolierten Testsystem geprüft.
