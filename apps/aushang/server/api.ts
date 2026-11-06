@@ -37,8 +37,6 @@ async function api(request:Request){try{
   if(!env.BUCKET)throw new HttpError(503,'Speicher nicht verfügbar.');return json(await continueUpdate(database,env.BUCKET,runId));
  }
  if(request.method==='GET'&&path==='/api/public/meta')return json(await updateMeta(database));
- if(request.method==='GET'&&path==='/api/public/sources')return json(await sourceIndex(database));
- if(request.method==='GET'&&path==='/api/public/catalog')return json({catalog:portalCatalog,topics:portalTopics,...portalMetadata});
  if(request.method==='GET'&&path==='/api/me'){
   const session=await sessionFor(database,request);if(!session)return json({account:null,access:null,meta:await updateMeta(database)});const account=session.account;
   const favoriteRows=await database.prepare('SELECT law_id FROM favorites WHERE account_id=? ORDER BY law_id').bind(account.id).all<{law_id:string}>();
@@ -97,7 +95,8 @@ async function api(request:Request){try{
  if(deviceMatch&&request.method==='DELETE'){
   await requirePasswordSession(database,request);await revokeDevice(database,account.id,deviceId(deviceMatch[1]));return json({ok:true});
  }
- if(request.method==='GET'&&path==='/api/catalog'){requireLicense(account);return json({catalog:portalCatalog});}
+ if(request.method==='GET'&&['/api/catalog','/api/public/catalog'].includes(path)){requireLicense(account);return json({catalog:portalCatalog,topics:portalTopics,...portalMetadata});}
+ if(request.method==='GET'&&['/api/sources','/api/public/sources'].includes(path)){requireLicense(account);return json(await sourceIndex(database));}
  const match=path.match(/^\/api\/texts\/([a-z0-9]+)$/);if(request.method==='GET'&&match){requireLicense(account);return json(await readLegalText(database,match[1]));}
  const pdf=path.match(/^\/api\/pdf\/(dguv[123])$/);if(request.method==='GET'&&pdf){requireLicense(account);if(!env.BUCKET)throw new HttpError(503,'Dokumentendienst nicht verfügbar.');return readPdf(database,env.BUCKET,pdf[1]);}
  if(request.method==='PUT'&&path==='/api/favorites'){

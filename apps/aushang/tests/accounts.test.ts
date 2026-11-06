@@ -56,8 +56,8 @@ test('Challenges expire, account boundaries hold, and password recovery revokes 
  const recover=await f.app.api(request('/api/auth/recover','POST',{username:'device-owner',recoveryCode:f.recoveryCode,newPassword:'Device recovery lange Passphrase!'}));assert.equal(recover.status,200);
  assert.equal((await f.app.api(request('/api/device/challenge','POST',{deviceId:f.device.id}))).status,403);
 });
-test('Public source metadata never contains customer or device details',async()=>{
- const f=await deviceFixture();const r=await f.app.api(request('/api/public/sources'));assert.equal(r.status,200);const value=await r.json() as any;assert.equal(value.sources.length,44);const raw=JSON.stringify(value);for(const secret of [site.company,site.work,site.street,'device-owner',f.device.id])assert.equal(raw.includes(secret),false);
+test('Authenticated source metadata never contains customer or device details',async()=>{
+ const f=await deviceFixture();assert.equal((await f.app.api(request('/api/public/sources'))).status,401);const r=await f.app.api(request('/api/sources','GET',undefined,f.admin));assert.equal(r.status,200);const value=await r.json() as any;assert.equal(value.sources.length,44);const raw=JSON.stringify(value);for(const secret of [site.company,site.work,site.street,'device-owner',f.device.id])assert.equal(raw.includes(secret),false);
 });
 
 function operatorCall(name:string,args:any={},verified=true){const r=request('/mcp','POST',{jsonrpc:'2.0',id:5,method:'tools/call',params:{name,arguments:args}});if(verified){r.headers.set('oai-authenticated-user-email','owner@tests.invalid');r.headers.set('oai-authenticated-user-id','test-only-verified-owner');}return r;}
