@@ -1,6 +1,6 @@
 # aushang. – Standortgebundene digitale Gesetzesaushänge
 
-Eigenständiges Gesetzesportal für Unternehmen. Die Startseite enthält sämtliche 44 Titel der Sammlung; 41 Gesetzes-/Verordnungstexte (drei gekennzeichnete Auszüge) und drei BGN-PDFs. Betriebliche Dokumente, Ansprechpartnerverzeichnisse, interne EHS-Inhalte und Standortwechsel sind entfernt.
+Eigenständiges Gesetzesportal für Unternehmen. Die Startseite zeigt ein alphabetisches Verzeichnis mit 69 Rechtsquellen. „Alle Gesetze“ und „Aushangpflichtige Gesetze“ stehen zuerst in der Hauptnavigation. Die Sammlung umfasst weiterhin 41 hinterlegte Gesetzes-/Verordnungstexte (drei gekennzeichnete Auszüge) und drei BGN-PDFs; zusätzliche Quellen sind klar als externe Originalquellen gekennzeichnet. Themenbereiche erschließen insgesamt 86 unterschiedliche Quellen, darunter technische Regeln und lizenzpflichtige Normen. Suchfeld, alphabetischer Filter und Favoriten erleichtern den Zugriff. Bekanntmachungspflichten werden mit Rechtsgrundlage und betrieblicher Bedingung erläutert; Buchinhalte sind nicht pauschal für jeden Betrieb aushangpflichtig.
 
 ## Zugang und Standortbindung
 
@@ -20,9 +20,15 @@ Beispiel einer späteren Betreiberanweisung: „Zahlung zu Rechnung R-2026-001 f
 
 Für einen entgeltlichen Rollout sind das konkrete Angebot, Rechnungs-/Steuerprozess und die tatsächlichen Hosting-/Auftragsverarbeitungs-/Transferbedingungen gesondert festzulegen. Werbung ist aktuell nicht eingebunden. Die technische Standortzuordnung ersetzt keinen Vertrag und prüft keinen tatsächlichen Aufenthaltsort.
 
+## Freiwillige Firmendokumente
+
+Der Bereich ist für jedes Konto zunächst deaktiviert. Nur die Passwortverwaltung kann ihn aktivieren, PDF/DOCX-Dateien hochladen (10 MB je Datei; 100 Dateien und 100 MB insgesamt), Metadaten ändern oder veröffentlichen. Uploads sind zunächst Entwürfe. Freigegebene Geräte sehen ausschließlich veröffentlichte Dateien ihres eigenen Standortkontos. Deaktivieren blendet den Bereich aus, ohne Daten zu löschen. Papierkorb und Wiederherstellung sind verfügbar; endgültiges Löschen erfordert eine gesonderte Bestätigung. Nach Lizenzablauf kann die Passwortverwaltung vorhandene Unterlagen weiterhin exportieren und verwalten, jedoch nicht neu hochladen.
+
+D1 speichert Metadaten; R2 verwendet getrennte accountbezogene Schlüssel unter `company/`. Downloads laufen ausschließlich über authentifizierte, kontogeprüfte Endpunkte mit `no-store` und Anhang-Disposition. Es gibt keine öffentlichen Datei-URLs. Formatprüfungen sind keine Virenscanner. Die Ablage ersetzt nicht automatisch die jeweilige Bekanntmachungsform, etwa § 77 Abs. 2 BetrVG. Private Dokumente sind ausdrücklich vom öffentlichen Quellenindex und monatlichen Gesetzesimport getrennt.
+
 ## Gerätegebundener Direktzugang
 
-„Anmelden & Geräte-Link erstellen“ erzeugt nach erfolgreicher Passwortanmeldung einen eigenen Link für genau dieses Browserprofil; ein bereits vorhandener lokaler Link wird wiederverwendet. „Nur Zugang verwalten“ legt keine dauerhafte Freigabe an. Zusätzlich kann unter „Mein Zugang“ ein Geräte-Link eingerichtet werden. Ein nicht exportierbarer ECDSA-P-256-Privatschlüssel liegt als CryptoKey in IndexedDB; der Server erhält nur den öffentlichen Schlüssel. Der Link enthält ausschließlich eine öffentliche Geräte-ID. Ein kopierter Link genügt auf einem anderen Browser nicht: Eine kurzlebige, einmal verwendbare Challenge muss mit dem lokalen Schlüssel signiert werden. Nach einem Cookie-Ablauf kann dieser Nachweis selbstständig eine neue, auf Lesen und Favoriten begrenzte Sitzung erzeugen. Es gibt auf `/geraet/<id>` kein Passwortformular; Netzwerkfehler zeigen eine Verbindungsanzeige und nach dem `online`-Ereignis wird automatisch erneut geöffnet.
+„Anmelden“ öffnet die Standortverwaltung. Die freiwillige Auswahl „Diesen Firmencomputer dauerhaft einrichten“ erzeugt nach erfolgreicher Anmeldung einen eigenen Link für genau dieses Browserprofil; ein bereits vorhandener lokaler Link wird wiederverwendet. Zusätzlich kann unter „Mein Zugang“ ein Geräte-Link eingerichtet werden. Ein nicht exportierbarer ECDSA-P-256-Privatschlüssel liegt als CryptoKey in IndexedDB; der Server erhält nur den öffentlichen Schlüssel. Der Link enthält ausschließlich eine öffentliche Geräte-ID. Ein kopierter Link genügt auf einem anderen Browser nicht: Eine kurzlebige, einmal verwendbare Challenge muss mit dem lokalen Schlüssel signiert werden. Nach einem Cookie-Ablauf kann dieser Nachweis selbstständig eine neue, auf Lesen und Favoriten begrenzte Sitzung erzeugen. Es gibt auf `/geraet/<id>` kein Passwortformular; Netzwerkfehler zeigen eine Verbindungsanzeige und nach dem `online`-Ereignis wird automatisch erneut geöffnet.
 
 Die Verwaltung der Geräte und Passwörter erfordert eine normale Passwortsitzung. Einzelne Freigaben können dort widerrufen werden; Passwortänderung oder Wiederherstellung widerrufen sämtliche bestehenden Gerätefreigaben. Bestehende Kundenkonten und vorherige Sitzungen bleiben durch die additive Datenbankmigration erhalten.
 
@@ -52,7 +58,7 @@ Die monatliche Aufgabe bezieht den unterstützten Dienstzugriff frisch aus `get_
 
 ## Daten und Datenschutz
 
-Es werden nur Zugangsdaten, der registrierte Geschäftsstandort, Nutzungsstatus, Favoriten und erforderliche Sicherheitsdaten gespeichert. Keine Betriebsdokumente oder Mitarbeiterverzeichnisse. Konten und Geschäftsadressen können dennoch personenbezogene Daten sein. Datenschutz- und Anbieterinformationen sind öffentlich erreichbar. Anbieterangaben wurden aus dem aktuellen bestehenden DefiDev-Impressum übernommen. Hosting-/Auftragsverarbeitungs- und Transferbedingungen sind vor einem kommerziellen Rollout konkret zu prüfen; ein fehlender interner Dokumentenbereich beseitigt diese Pflichten nicht.
+Gespeichert werden Zugangsdaten, registrierter Geschäftsstandort, Nutzungsstatus, Favoriten und erforderliche Sicherheitsdaten. Freiwillige Firmendokumente werden erst nach ausdrücklicher Aktivierung durch die Passwortverwaltung aufgenommen. Konten und Geschäftsadressen können dennoch personenbezogene Daten sein. Datenschutz- und Anbieterinformationen sind öffentlich erreichbar. Anbieterangaben wurden aus dem aktuellen bestehenden DefiDev-Impressum übernommen. Hosting-/Auftragsverarbeitungs- und Transferbedingungen sind vor einem kommerziellen Rollout konkret zu prüfen; die optionale Dokumentenablage erfordert zusätzlich die passende vertragliche Zuordnung zwischen Unternehmen und Anbieter.
 
 Frühere Offline-Caches des lokalen Demo-Portals werden bei Umstellung entfernt. Authentifizierte Inhalte und Kontoangaben werden nicht im Service-Worker-Cache oder localStorage gespeichert. Die installierbare Web-App benötigt für Anmeldung und Texte Internet.
 

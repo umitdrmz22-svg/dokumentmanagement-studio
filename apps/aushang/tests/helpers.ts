@@ -1,0 +1,10 @@
+import {DatabaseSync} from 'node:sqlite';
+import {readFileSync,readdirSync} from 'node:fs';
+import {createAPI} from '../server/api';
+export function database(){const sql=new DatabaseSync(':memory:');sql.exec('PRAGMA foreign_keys=ON;');for(const file of readdirSync(new URL('../drizzle/',import.meta.url)).filter(f=>f.endsWith('.sql')).sort())sql.exec(readFileSync(new URL('../drizzle/'+file,import.meta.url),'utf8'));class Q{constructor(public query:string,public values:any[]=[]){ }bind(...values:any[]){return new Q(this.query,values);}async first(){return sql.prepare(this.query).get(...this.values)||null;}async all(){return {results:sql.prepare(this.query).all(...this.values)};}async run(){const r=sql.prepare(this.query).run(...this.values);return {success:true,meta:{changes:r.changes}};}}const db={prepare:(q:string)=>new Q(q),async batch(qs:Q[]){sql.exec('BEGIN');try{const results=[];for(const q of qs)results.push(await q.run());sql.exec('COMMIT');return results;}catch(e){sql.exec('ROLLBACK');throw e;}}};return {sql,db:db as unknown as D1Database};}
+export const base='https://portal.example';
+export function request(path:string,method='GET',body?:any,cookie='',origin=base){return new Request(base+path,{method,headers:{...(method!=='GET'?{Origin:origin}:{}),...(body?{'Content-Type':'application/json'}:{}),...(cookie?{Cookie:cookie}:{})},body:body?JSON.stringify(body):undefined});}
+export const site={company:'Musterbetrieb GmbH',work:'Werk Alpha',street:'Musterstraße',houseNumber:'1',postalCode:'12345',city:'Musterstadt',country:'Deutschland',acceptSiteScope:true,businessOnly:true};
+export function grantForTest(sql:DatabaseSync,user:string){sql.prepare('UPDATE accounts SET access_status=?,license_valid_until=? WHERE username=?').run('active',Math.floor(Date.now()/1000)+366*86400,user);}
+export const cookie=(r:Response)=>(r.headers.get('Set-Cookie')||'').split(';')[0];
+export function setup(){const {sql,db}=database();const app=createAPI({DB:db,AUTH_RATE_SECRET:'test-only-rate-secret',MAINTAINER_EMAIL:'owner@tests.invalid'});return {sql,db,...app};}

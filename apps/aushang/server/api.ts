@@ -3,6 +3,8 @@ import { canRead,createSession,requireAccount,requireLicense,requirePasswordSess
 import {challengeDevice,deviceId,enrollDevice,revokeDevice,unlockDevice} from './devices';
 import {sourceIndex} from './source-index';
 import {activateCustomer,customerRequests,grantDemoAccess,suspendCustomer} from './licensing';
+import {documentsAPI} from './documents';
+import {portalCatalog,portalTopics,portalMetadata} from './portal-catalog';
 import { bodyJSON,clean,constantEqual,digest,getSessionToken,hashPassword,HttpError,json,profile,randomToken,rateLimit,requireOrigin,sessionCookie,username,validatePassword,verifyPassword } from './security';
 import { beginUpdate,continueUpdate,publishUpdate,readLegalText,readPdf,updateMeta,maintenanceStatus,stageOfficialSource } from './updates';
 export const TERMS_VERSION='2026-11-05-access-request';
@@ -36,6 +38,7 @@ async function api(request:Request){try{
  }
  if(request.method==='GET'&&path==='/api/public/meta')return json(await updateMeta(database));
  if(request.method==='GET'&&path==='/api/public/sources')return json(await sourceIndex(database));
+ if(request.method==='GET'&&path==='/api/public/catalog')return json({catalog:portalCatalog,topics:portalTopics,...portalMetadata});
  if(request.method==='GET'&&path==='/api/me'){
   const session=await sessionFor(database,request);if(!session)return json({account:null,access:null,meta:await updateMeta(database)});const account=session.account;
   const favoriteRows=await database.prepare('SELECT law_id FROM favorites WHERE account_id=? ORDER BY law_id').bind(account.id).all<{law_id:string}>();
@@ -79,6 +82,9 @@ async function api(request:Request){try{
   return json({ok:true,recoveryCode},200,{'Set-Cookie':await createSession(database,request,row.id,false)});
  }
  const account=await requireAccount(database,request);
+ if(path==='/api/documents'||path.startsWith('/api/documents/')){
+  const session=await sessionFor(database,request);if(!session)throw new HttpError(401,'Bitte erneut anmelden.');return await documentsAPI(database,env.BUCKET,request,session);
+ }
  if(path==='/api/devices'&&request.method==='GET'){
   await requirePasswordSession(database,request);
   const rows=await database.prepare('SELECT id,label,created_at AS createdAt,last_used_at AS lastUsedAt FROM devices WHERE account_id=? AND revoked_at IS NULL ORDER BY created_at DESC').bind(account.id).all();return json({devices:rows.results||[]});
@@ -91,12 +97,12 @@ async function api(request:Request){try{
  if(deviceMatch&&request.method==='DELETE'){
   await requirePasswordSession(database,request);await revokeDevice(database,account.id,deviceId(deviceMatch[1]));return json({ok:true});
  }
- if(request.method==='GET'&&path==='/api/catalog'){requireLicense(account);return json({catalog});}
+ if(request.method==='GET'&&path==='/api/catalog'){requireLicense(account);return json({catalog:portalCatalog});}
  const match=path.match(/^\/api\/texts\/([a-z0-9]+)$/);if(request.method==='GET'&&match){requireLicense(account);return json(await readLegalText(database,match[1]));}
  const pdf=path.match(/^\/api\/pdf\/(dguv[123])$/);if(request.method==='GET'&&pdf){requireLicense(account);if(!env.BUCKET)throw new HttpError(503,'Dokumentendienst nicht verfügbar.');return readPdf(database,env.BUCKET,pdf[1]);}
  if(request.method==='PUT'&&path==='/api/favorites'){
   requireLicense(account);
-  const b=await bodyJSON(request);if(!Array.isArray(b.favorites)||b.favorites.length>catalog.length)throw new HttpError(400,'Ungültige Favoritenliste.');const ids=[...new Set(b.favorites)];if(ids.some(x=>typeof x!=='string'||!catalog.some(l=>l.id===x)))throw new HttpError(400,'Unbekannter Gesetzestitel.');
+  const b=await bodyJSON(request);if(!Array.isArray(b.favorites)||b.favorites.length>portalCatalog.length)throw new HttpError(400,'Ungültige Favoritenliste.');const ids=[...new Set(b.favorites)];if(ids.some(x=>typeof x!=='string'||!portalCatalog.some(l=>l.id===x)))throw new HttpError(400,'Unbekannter Gesetzestitel.');
   await database.batch([database.prepare('DELETE FROM favorites WHERE account_id=?').bind(account.id),...ids.map(id=>database.prepare('INSERT INTO favorites (account_id,law_id) VALUES (?,?)').bind(account.id,id))]);return json({favorites:ids});
  }
  if(request.method==='POST'&&path==='/api/auth/password'){
