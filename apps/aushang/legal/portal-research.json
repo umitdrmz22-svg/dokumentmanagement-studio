@@ -1,0 +1,1006 @@
+{
+  "checkedAt": "2026-11-06",
+  "scope": "Redaktionelle Auswahl amtlicher Rechtsquellen, technischer Regeln und offizieller Arbeitshilfen. Keine abschließende Ermittlung aller betriebsbezogenen Pflichten. Die Aufnahme begründet keine allgemeine Aushangpflicht.",
+  "copyright": "ISO-Normtexte nur als Verweis zum offiziellen Anbieter; keine Übernahme des kostenpflichtigen Normvolltexts.",
+  "topics": [
+    {
+      "id": "umwelt",
+      "title": "Umwelt",
+      "intro": "Rechtsgrundlagen und offizielle Arbeitshilfen zu Emissionen, Abfall, Gewässerschutz und Energie.",
+      "items": [
+        {
+          "id": "bimschg",
+          "title": "Bundes-Immissionsschutzgesetz",
+          "abbreviation": "BImSchG",
+          "url": "https://www.gesetze-im-internet.de/bimschg/BJNR007210974.html",
+          "description": "Rechtsrahmen für den Schutz vor schädlichen Umwelteinwirkungen und den Betrieb von Anlagen.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "bimschv4",
+          "title": "Verordnung über genehmigungsbedürftige Anlagen",
+          "abbreviation": "4. BImSchV",
+          "url": "https://www.gesetze-im-internet.de/bimschv_4_2013/BJNR097310013.html",
+          "description": "Anlagenarten und Zuordnung zu immissionsschutzrechtlichen Genehmigungsverfahren.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "krwg",
+          "title": "Kreislaufwirtschaftsgesetz",
+          "abbreviation": "KrWG",
+          "url": "https://www.gesetze-im-internet.de/krwg/BJNR021210012.html",
+          "description": "Abfallvermeidung, Verwertung und umweltverträgliche Bewirtschaftung von Abfällen.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "whg",
+          "title": "Wasserhaushaltsgesetz",
+          "abbreviation": "WHG",
+          "url": "https://www.gesetze-im-internet.de/whg_2009/BJNR258510009.html",
+          "description": "Benutzung und Schutz von Gewässern sowie Anforderungen an Abwasser und Anlagen.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "awsv",
+          "title": "Verordnung über Anlagen zum Umgang mit wassergefährdenden Stoffen",
+          "abbreviation": "AwSV",
+          "url": "https://www.gesetze-im-internet.de/awsv/",
+          "description": "Anforderungen an Anlagen, in denen wassergefährdende Stoffe verwendet oder gelagert werden.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "gewabfv",
+          "title": "Gewerbeabfallverordnung",
+          "abbreviation": "GewAbfV",
+          "url": "https://www.gesetze-im-internet.de/gewabfv_2017/BJNR089600017.html",
+          "description": "Bewirtschaftung gewerblicher Siedlungsabfälle sowie bestimmter Bau- und Abbruchabfälle.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "enefg",
+          "title": "Energieeffizienzgesetz",
+          "abbreviation": "EnEfG",
+          "url": "https://www.gesetze-im-internet.de/enefg/BJNR1350B0023.html",
+          "description": "Energieeffizienz, Managementsysteme, Umsetzungspläne und Abwärme im jeweiligen Anwendungsbereich.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "uba-wasser",
+          "title": "Rechtliche Regelungen für wassergefährdende Stoffe",
+          "abbreviation": "UBA · Gewässerschutz",
+          "url": "https://www.umweltbundesamt.de/themen/chemikalien/wassergefaehrdende-stoffe/rechtliche-regelungen",
+          "description": "Behördliche Einordnung des Gewässerschutzes und der rechtlichen Grundlagen für wassergefährdende Stoffe.",
+          "type": "Arbeitshilfe",
+          "provider": "Umweltbundesamt",
+          "checkedAt": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "arbeitssicherheit",
+      "title": "Arbeitssicherheit",
+      "intro": "Grundlagen des betrieblichen Arbeitsschutzes, Arbeitsmittel, Arbeitsstätten und Vorsorge.",
+      "items": [
+        {
+          "id": "arbschg",
+          "title": "Arbeitsschutzgesetz",
+          "abbreviation": "ArbSchG",
+          "url": "https://www.gesetze-im-internet.de/arbschg/",
+          "description": "Grundpflichten, Gefährdungsbeurteilung, Schutzmaßnahmen und Unterweisung.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "arbschg"
+        },
+        {
+          "id": "asig",
+          "title": "Gesetz über Betriebsärzte, Sicherheitsingenieure und andere Fachkräfte für Arbeitssicherheit",
+          "abbreviation": "ASiG",
+          "url": "https://www.gesetze-im-internet.de/asig/BJNR018850973.html",
+          "description": "Bestellung, Aufgaben und Zusammenarbeit betriebsärztlicher und sicherheitstechnischer Fachkunde.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "asig"
+        },
+        {
+          "id": "arbstattv",
+          "title": "Arbeitsstättenverordnung",
+          "abbreviation": "ArbStättV",
+          "url": "https://www.gesetze-im-internet.de/arbst_ttv_2004/BJNR217910004.html",
+          "description": "Anforderungen an das Einrichten und Betreiben von Arbeitsstätten.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "arbstattv"
+        },
+        {
+          "id": "betrsichv",
+          "title": "Betriebssicherheitsverordnung",
+          "abbreviation": "BetrSichV",
+          "url": "https://www.gesetze-im-internet.de/betrsichv_2015/BJNR004910015.html",
+          "description": "Sicherheit bei der Verwendung von Arbeitsmitteln und überwachungsbedürftigen Anlagen.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "betrsichv"
+        },
+        {
+          "id": "arbmedvv",
+          "title": "Verordnung zur arbeitsmedizinischen Vorsorge",
+          "abbreviation": "ArbMedVV",
+          "url": "https://www.gesetze-im-internet.de/arbmedvv/BJNR276810008.html",
+          "description": "Rahmen für Pflicht-, Angebots- und Wunschvorsorge.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "arbmedvv"
+        },
+        {
+          "id": "laermvibr",
+          "title": "Lärm- und Vibrations-Arbeitsschutzverordnung",
+          "abbreviation": "LärmVibrationsArbSchV",
+          "url": "https://www.gesetze-im-internet.de/l_rmvibrationsarbschv/BJNR026110007.html",
+          "description": "Gefährdungsbeurteilung und Schutz bei Lärm- und Vibrationsexposition.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "laermvibr"
+        },
+        {
+          "id": "trbs1111",
+          "title": "Gefährdungsbeurteilung",
+          "abbreviation": "TRBS 1111",
+          "url": "https://www.baua.de/DE/Angebote/Regelwerk/TRBS/TRBS-1111",
+          "description": "Technische Konkretisierung zur Gefährdungsbeurteilung bei der Verwendung von Arbeitsmitteln.",
+          "type": "Technische Regel",
+          "provider": "BAuA",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "dguv-v1",
+          "title": "Grundsätze der Prävention",
+          "abbreviation": "DGUV Vorschrift 1",
+          "url": "https://publikationen.dguv.de/regelwerk/dguv-vorschriften/2909/dguv-vorschrift-1?c=13",
+          "description": "Unfallverhütungsvorschrift; die für den Betrieb geltende Trägerfassung ist beim zuständigen Unfallversicherungsträger zu prüfen.",
+          "type": "Unfallverhütungsvorschrift",
+          "provider": "DGUV",
+          "checkedAt": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "brandschutz",
+      "title": "Brandschutz",
+      "intro": "Betriebliche Brandbekämpfung, Fluchtwege, Kennzeichnung und offizielle Ausbildungshilfen.",
+      "items": [
+        {
+          "id": "arbschg10",
+          "title": "Erste Hilfe und sonstige Notfallmaßnahmen",
+          "abbreviation": "§ 10 ArbSchG",
+          "url": "https://www.gesetze-im-internet.de/arbschg/__10.html",
+          "description": "Gesetzliche Grundlage für erforderliche Maßnahmen zu Erster Hilfe, Brandbekämpfung und Evakuierung.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "arbschg"
+        },
+        {
+          "id": "arbstattv-brand",
+          "title": "Arbeitsstättenverordnung",
+          "abbreviation": "ArbStättV",
+          "url": "https://www.gesetze-im-internet.de/arbst_ttv_2004/BJNR217910004.html",
+          "description": "Anforderungen an Arbeitsstätten einschließlich Notfallmaßnahmen und Fluchtwegen.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "arbstattv"
+        },
+        {
+          "id": "asra22",
+          "title": "Maßnahmen gegen Brände",
+          "abbreviation": "ASR A2.2",
+          "url": "https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A2-2.html",
+          "description": "Technische Regel zu Feuerlöscheinrichtungen und organisatorischen Brandschutzmaßnahmen.",
+          "type": "Technische Regel",
+          "provider": "BAuA",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "asra23",
+          "title": "Fluchtwege und Notausgänge",
+          "abbreviation": "ASR A2.3",
+          "url": "https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A2-3",
+          "description": "Technische Regel zur Gestaltung und Nutzung von Fluchtwegen und Notausgängen.",
+          "type": "Technische Regel",
+          "provider": "BAuA",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "asra13",
+          "title": "Sicherheits- und Gesundheitsschutzkennzeichnung",
+          "abbreviation": "ASR A1.3",
+          "url": "https://www.baua.de/DE/Angebote/Regelwerk/ASR/ASR-A1-3",
+          "description": "Technische Regel für Sicherheitszeichen sowie die Darstellung von Flucht- und Rettungsplänen.",
+          "type": "Technische Regel",
+          "provider": "BAuA",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "dguv205023",
+          "title": "Brandschutzhelfer",
+          "abbreviation": "DGUV Information 205-023",
+          "url": "https://publikationen.dguv.de/regelwerk/dguv-informationen/2848/brandschutzhelfer",
+          "description": "Offizielle Hilfe zu Inhalten und Umfang der Ausbildung von Brandschutzhelfern.",
+          "type": "Arbeitshilfe",
+          "provider": "DGUV",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "dguv205003",
+          "title": "Aufgaben, Qualifikation, Ausbildung und Bestellung von Brandschutzbeauftragten",
+          "abbreviation": "DGUV Information 205-003",
+          "url": "https://publikationen.dguv.de/regelwerk/dguv-informationen/3872/aufgaben-qualifikation-ausbildung-und-bestellung-von-brandschutzbeauftragten",
+          "description": "Offizielle Hilfe zur Funktion und Qualifikation von Brandschutzbeauftragten bei entsprechendem betrieblichem Bedarf.",
+          "type": "Arbeitshilfe",
+          "provider": "DGUV",
+          "checkedAt": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "gefahrstoffe",
+      "title": "Gefahrstoffe",
+      "intro": "Chemikalienrecht und technische Regeln für Gefährdungsbeurteilung, Lagerung, Information und Grenzwerte.",
+      "items": [
+        {
+          "id": "gefstoffv",
+          "title": "Gefahrstoffverordnung",
+          "abbreviation": "GefStoffV",
+          "url": "https://www.gesetze-im-internet.de/gefstoffv_2010/BJNR164400010.html",
+          "description": "Gefahrstoffinformation, Gefährdungsbeurteilung und Schutzmaßnahmen bei Tätigkeiten mit Gefahrstoffen.",
+          "type": "Verordnung",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06",
+          "catalogId": "gefstoffv"
+        },
+        {
+          "id": "chemg",
+          "title": "Chemikaliengesetz",
+          "abbreviation": "ChemG",
+          "url": "https://www.gesetze-im-internet.de/chemg/BJNR017180980.html",
+          "description": "Nationaler Rechtsrahmen zum Schutz vor gefährlichen Stoffen und Gemischen.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "reach",
+          "title": "Verordnung (EG) Nr. 1907/2006 zur Registrierung, Bewertung, Zulassung und Beschränkung chemischer Stoffe",
+          "abbreviation": "REACH",
+          "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32006R1907",
+          "description": "EU-Regelung zu Registrierung, Bewertung, Zulassung, Beschränkungen und Stoffinformationen.",
+          "type": "Verordnung",
+          "provider": "EUR-Lex",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "clp",
+          "title": "Verordnung (EG) Nr. 1272/2008 über die Einstufung, Kennzeichnung und Verpackung von Stoffen und Gemischen",
+          "abbreviation": "CLP",
+          "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32008R1272",
+          "description": "EU-Regelung zur Einstufung, Kennzeichnung und Verpackung von Chemikalien.",
+          "type": "Verordnung",
+          "provider": "EUR-Lex",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "trgs400",
+          "title": "Gefährdungsbeurteilung für Tätigkeiten mit Gefahrstoffen",
+          "abbreviation": "TRGS 400",
+          "url": "https://www.baua.de/DE/Angebote/Regelwerk/TRGS/TRGS-400",
+          "description": "Technische Regel zur Ermittlung und Bewertung von Gefahrstoffgefährdungen.",
+          "type": "Technische Regel",
+          "provider": "BAuA",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "trgs510",
+          "title": "Lagerung von Gefahrstoffen in ortsbeweglichen Behältern",
+          "abbreviation": "TRGS 510",
+          "url": "https://www.baua.de/DE/Angebote/Regelwerk/TRGS/TRGS-510",
+          "description": "Technische Regel zur sicheren Lagerung in ortsbeweglichen Behältern.",
+          "type": "Technische Regel",
+          "provider": "BAuA",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "trgs555",
+          "title": "Betriebsanweisung und Information der Beschäftigten",
+          "abbreviation": "TRGS 555",
+          "url": "https://www.baua.de/DE/Angebote/Rechtstexte-und-Technische-Regeln/Regelwerk/TRGS/pdf/TRGS-555.pdf?__blob=publicationFile",
+          "description": "Technische Regel zur Betriebsanweisung und Information bei Tätigkeiten mit Gefahrstoffen.",
+          "type": "Technische Regel",
+          "provider": "BAuA",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "trgs900",
+          "title": "Arbeitsplatzgrenzwerte",
+          "abbreviation": "TRGS 900",
+          "url": "https://www.baua.de/DE/Angebote/Regelwerk/TRGS/TRGS-900",
+          "description": "Technische Regel mit Arbeitsplatzgrenzwerten; maßgeblich ist die jeweils veröffentlichte Fassung.",
+          "type": "Technische Regel",
+          "provider": "BAuA",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "echa-clp",
+          "title": "Verständnis der CLP-Verordnung",
+          "abbreviation": "ECHA · CLP",
+          "url": "https://echa.europa.eu/de/regulations/clp/understanding-clp",
+          "description": "Offizielle Einführung der Europäischen Chemikalienagentur in die CLP-Verordnung.",
+          "type": "Arbeitshilfe",
+          "provider": "ECHA",
+          "checkedAt": "2026-11-06"
+        }
+      ]
+    },
+    {
+      "id": "emas-iso14001",
+      "title": "EMAS / ISO 14001",
+      "intro": "Rechtliche Grundlagen, Register und offizielle Informationen zum Umweltmanagement.",
+      "items": [
+        {
+          "id": "emas-vo",
+          "title": "Verordnung (EG) Nr. 1221/2009 über die freiwillige Teilnahme von Organisationen an einem Gemeinschaftssystem für Umweltmanagement und Umweltbetriebsprüfung",
+          "abbreviation": "EMAS-Verordnung",
+          "url": "https://eur-lex.europa.eu/legal-content/de/TXT/?uri=CELEX%3A32009R1221",
+          "description": "Europäische Rechtsgrundlage des EMAS-Systems und seiner Anforderungen.",
+          "type": "Verordnung",
+          "provider": "EUR-Lex",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "uag",
+          "title": "Umweltauditgesetz",
+          "abbreviation": "UAG",
+          "url": "https://www.gesetze-im-internet.de/uag/BJNR159100995.html",
+          "description": "Deutsches Ausführungsgesetz zur EMAS-Verordnung mit Vorgaben zu Zulassung, Aufsicht und Registrierung.",
+          "type": "Gesetz",
+          "provider": "Gesetze im Internet",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "iso14001",
+          "title": "Environmental management systems — Requirements with guidance for use",
+          "abbreviation": "ISO 14001:2026",
+          "url": "https://www.iso.org/standard/14001",
+          "description": "Offizielle Produktseite der vierten Ausgabe, veröffentlicht April 2026. Der lizenzpflichtige Normvolltext wird nicht im Portal wiedergegeben.",
+          "type": "Norm",
+          "provider": "ISO",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "emas-recht",
+          "title": "Rechtliche Grundlagen von EMAS",
+          "abbreviation": "EMAS · Rechtliches",
+          "url": "https://www.emas.de/rechtliches",
+          "description": "UGA-Übersicht zu EMAS-Verordnung, Nutzerhandbuch und branchenspezifischen Referenzdokumenten.",
+          "type": "Arbeitshilfe",
+          "provider": "Geschäftsstelle des Umweltgutachterausschusses",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "emas-register",
+          "title": "Das EMAS-Register",
+          "abbreviation": "EMAS-Register",
+          "url": "https://www.emas-register.de/emas-register",
+          "description": "Offizielles Verzeichnis registrierter Organisationen und Standorte der registerführenden Stellen.",
+          "type": "Register",
+          "provider": "DIHK / registerführende Stellen",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "emas-ec",
+          "title": "Eco-Management and Audit Scheme (EMAS)",
+          "abbreviation": "EMAS · EU-Kommission",
+          "url": "https://green-forum.ec.europa.eu/green-business/emas_en",
+          "description": "Informationen der Europäischen Kommission zum EMAS-System und seiner Anwendung.",
+          "type": "Arbeitshilfe",
+          "provider": "Europäische Kommission",
+          "checkedAt": "2026-11-06"
+        },
+        {
+          "id": "emas-uba",
+          "title": "EMAS – Umweltmanagement-Gütesiegel der Europäischen Union",
+          "abbreviation": "EMAS · Umweltbundesamt",
+          "url": "https://www.umweltbundesamt.de/themen/wirtschaft-konsum/wirtschaft-umwelt/umwelt-energiemanagement/emas-umweltmanagement-guetesiegel-der-europaeischen",
+          "description": "Behördliche Übersicht zu Umweltmanagement, Umweltleistung und Umwelterklärung.",
+          "type": "Arbeitshilfe",
+          "provider": "Umweltbundesamt",
+          "checkedAt": "2026-11-06"
+        }
+      ]
+    }
+  ],
+  "extraEntries": [
+    {
+      "id": "vermbg5",
+      "short": "5. VermBG",
+      "title": "Fünftes Gesetz zur Förderung der Vermögensbildung der Arbeitnehmer",
+      "type": "Gesetz",
+      "url": "https://www.gesetze-im-internet.de/vermbg_2/",
+      "classification": "Bedingte Bekanntmachung",
+      "basis": "§ 11 Abs. 4 5. VermBG",
+      "basisUrl": "https://www.gesetze-im-internet.de/vermbg_2/__11.html",
+      "trigger": "Der Arbeitgeber bestimmt einen Termin für das Verlangen der einmaligen vermögenswirksamen Anlage von Teilen des Arbeitslohns.",
+      "requiredContent": "Der festgelegte Termin ist in jedem Kalenderjahr erneut in geeigneter Form bekanntzugeben.",
+      "note": "Bekanntzumachen ist der konkrete Termin. Die Vorschrift verlangt keinen allgemeinen Aushang des gesamten 5. VermBG.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "wo",
+      "short": "WO",
+      "title": "Erste Verordnung zur Durchführung des Betriebsverfassungsgesetzes (Wahlordnung)",
+      "type": "Verordnung",
+      "url": "https://www.gesetze-im-internet.de/betrvgdv1wo/",
+      "classification": "Bedingte Auslage und Wahlbekanntmachung",
+      "basis": "§ 2 Abs. 4, § 3 Abs. 4, § 18 WO",
+      "basisUrl": "https://www.gesetze-im-internet.de/betrvgdv1wo/__2.html",
+      "trigger": "Einleitung und Durchführung einer Betriebsratswahl; für andere Wahlverfahren gelten die jeweiligen Sonderbestimmungen.",
+      "requiredContent": "Wählerliste und Wahlordnung ab Einleitung bis Abschluss der Stimmabgabe; Wahlausschreiben sowie später die gewählten Mitglieder entsprechend den jeweiligen Fristen.",
+      "delivery": "§ 2 Abs. 4 lässt ausschließlich elektronische Bekanntmachung nur zu, wenn alle Beschäftigten Kenntnis erlangen können und nur der Wahlvorstand Änderungen vornehmen kann. § 3 Abs. 4 verweist auf diese Voraussetzung. Gewählte Mitglieder sind nach § 18 für zwei Wochen bekanntzumachen.",
+      "note": "Nicht ständig für jeden Betrieb vorgeschrieben. Personenbezogene Wahlunterlagen gehören nicht in einen öffentlich zugänglichen allgemeinen Gesetzeskatalog.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "schwbvwo",
+      "short": "SchwbVWO",
+      "title": "Wahlordnung Schwerbehindertenvertretungen",
+      "type": "Verordnung",
+      "url": "https://www.gesetze-im-internet.de/schwbwo/",
+      "classification": "Bedingte Auslage und Wahlbekanntmachung",
+      "basis": "§ 3 Abs. 2, § 5 Abs. 1 Nr. 4 und Abs. 2, §§ 8, 15 SchwbVWO",
+      "basisUrl": "https://www.gesetze-im-internet.de/schwbwo/__5.html",
+      "trigger": "Durchführung der Wahl einer Schwerbehindertenvertretung nach dem einschlägigen Wahlverfahren.",
+      "requiredContent": "Liste der Wahlberechtigten zur Einsicht; Wahlausschreiben ab Erlass bis Wahltag; Bewerbernamen spätestens eine Woche vor Stimmabgabe bis deren Abschluss; Gewählte für zwei Wochen.",
+      "delivery": "§ 5 Abs. 2 verlangt Aushang an zugänglicher Stelle. Eine allgemeine Ersetzung sämtlicher Pflichten durch einen öffentlichen Weblink lässt sich daraus nicht ableiten.",
+      "note": "Die bloße Aufnahme der Verordnung ersetzt die konkreten Wahlbekanntmachungen nicht. Das vereinfachte Wahlverfahren hat eigene Regeln.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "drucklv",
+      "short": "DruckLV",
+      "title": "Verordnung über Arbeiten in Druckluft (Druckluftverordnung)",
+      "type": "Verordnung",
+      "url": "https://www.gesetze-im-internet.de/drucklv/",
+      "classification": "Bedingter betrieblicher Aushang",
+      "basis": "§ 1, § 12 Abs. 2 DruckLV",
+      "basisUrl": "https://www.gesetze-im-internet.de/drucklv/__12.html",
+      "trigger": "Gewerbsmäßig durch einen Arbeitgeber ausgeführte Arbeiten in Druckluft; § 1 Abs. 2 nimmt Arbeiten in Taucherglocken ohne Schleusen und Taucherarbeiten aus.",
+      "requiredContent": "Name, Anschrift und Telefonnummer des ermächtigten Arztes.",
+      "delivery": "An der Arbeitsstelle zugänglich und gut lesbar aushängen, insbesondere in Personenschleuse und Erholungsraum.",
+      "note": "Aushang der konkreten Arztangaben, kein pauschaler Volltextaushang der Verordnung. § 20 enthält zusätzliche Belehrungs- und Merkblattpflichten.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "strlschg",
+      "short": "StrlSchG",
+      "title": "Gesetz zum Schutz vor der schädlichen Wirkung ionisierender Strahlung (Strahlenschutzgesetz)",
+      "type": "Gesetz",
+      "url": "https://www.gesetze-im-internet.de/strlschg/",
+      "classification": "Bedingtes Bereithalten des Gesetzestextes",
+      "basis": "§ 46 StrlSchV",
+      "basisUrl": "https://www.gesetze-im-internet.de/strlschv_2018/__46.html",
+      "trigger": "Der Strahlenschutzverantwortliche eines einschlägigen Betriebs oder selbständigen Zweigbetriebs, wenn regelmäßig mindestens eine Person beschäftigt wird oder unter Aufsicht eines anderen tätig ist.",
+      "requiredContent": "Strahlenschutzgesetz und Strahlenschutzverordnung müssen zur Einsicht ständig verfügbar sein.",
+      "note": "Spezielle Strahlenschutzkonstellation; keine allgemeine Pflicht für jeden Arbeitgeber.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "strlschv",
+      "short": "StrlSchV",
+      "title": "Verordnung zum Schutz vor der schädlichen Wirkung ionisierender Strahlung (Strahlenschutzverordnung)",
+      "type": "Verordnung",
+      "url": "https://www.gesetze-im-internet.de/strlschv_2018/",
+      "classification": "Bedingtes Bereithalten des Verordnungstextes",
+      "basis": "§ 46 StrlSchV; ergänzend § 45 StrlSchV",
+      "basisUrl": "https://www.gesetze-im-internet.de/strlschv_2018/__46.html",
+      "trigger": "Entsprechende Strahlenschutzbetriebe mit regelmäßig mindestens einer beschäftigten oder unter Aufsicht tätigen Person.",
+      "requiredContent": "Gesetz und Verordnung zur Einsicht ständig verfügbar halten.",
+      "note": "Die betriebliche Strahlenschutzanweisung nach § 45 ist ein eigenes Dokument. Für die in § 45 Abs. 4 genannten Anzeige-Fälle entsteht deren Erlasspflicht nur bei behördlicher Verpflichtung.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "bayladschlg",
+      "short": "BayLadSchlG",
+      "title": "Bayerisches Ladenschlussgesetz",
+      "type": "Landesgesetz",
+      "url": "https://www.gesetze-bayern.de/Content/Document/BayLadSchlG/true",
+      "classification": "Bedingte Bereitstellung in Bayern",
+      "basis": "Art. 9 Abs. 6 Satz 1 Nr. 1, Abs. 7 BayLadSchlG",
+      "basisUrl": "https://www.gesetze-bayern.de/Content/Document/BayLadSchlG-9",
+      "trigger": "Verkaufsstellen in Bayern mit in der Regel mindestens einem Arbeitnehmer; Ausnahme für pharmazeutisch vorgebildete Arbeitnehmer in Apotheken nach Abs. 7 beachten.",
+      "requiredContent": "Wortlaut des Gesetzes und der für die Verkaufsstelle geltenden, aufgrund dieses Gesetzes erlassenen Rechtsverordnungen.",
+      "delivery": "Aushang, Auslegen zur Einsicht oder in der Verkaufsstelle übliche Informations- und Kommunikationstechnik.",
+      "note": "Seit 01.08.2025 gilt in Bayern ein eigenes Ladenschlussgesetz. Bei Günzburg relevant, sofern tatsächlich eine Verkaufsstelle besteht. Nicht jedes Produktionswerk ist eine Verkaufsstelle.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "baustellv",
+      "short": "BaustellV",
+      "title": "Verordnung über Sicherheit und Gesundheitsschutz auf Baustellen (Baustellenverordnung)",
+      "type": "Verordnung",
+      "url": "https://www.gesetze-im-internet.de/baustellv/",
+      "classification": "Bedingter Aushang einer Vorankündigung",
+      "basis": "§ 2 Abs. 2 BaustellV",
+      "basisUrl": "https://www.gesetze-im-internet.de/baustellv/__2.html",
+      "trigger": "Baustelle voraussichtlich länger als 30 Arbeitstage mit mehr als 20 gleichzeitig Beschäftigten oder mit voraussichtlich mehr als 500 Personentagen.",
+      "requiredContent": "Vorankündigung mit mindestens den Angaben des Anhangs I; spätestens zwei Wochen vor Einrichtung an die Behörde übermitteln, sichtbar auf der Baustelle aushängen und bei erheblichen Änderungen anpassen.",
+      "note": "Gefordert ist die konkrete Baustellen-Vorankündigung. Der bloße Gesetzeslink oder eine Sammlung im Portal ersetzt diesen sichtbaren Baustellenaushang nicht.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "dsgvo",
+      "short": "DSGVO",
+      "title": "Verordnung (EU) 2016/679 (Datenschutz-Grundverordnung)",
+      "type": "EU-Verordnung",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679",
+      "classification": "Ergänzender Gesetzestext",
+      "basis": "Insbesondere Art. 12–14 DSGVO",
+      "basisUrl": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679",
+      "trigger": "Personenbezogene Daten werden verarbeitet; die konkreten Informationspflichten hängen von Erhebungsart und Umständen ab.",
+      "requiredContent": "Betroffene müssen die jeweils vorgeschriebenen Informationen zur konkreten Verarbeitung erhalten.",
+      "note": "Als ergänzenden Text unter Alle Gesetze führen. Art. 13/14 verlangen verarbeitungsbezogene Informationen; ein allgemeiner Aushang des DSGVO-Volltextes ersetzt diese nicht. EUR-Lex-Direktabruf zeigte Robotprüfung; amtliche EU-Suchergebnisse und offizielles BMF-Handbuch verifizieren den Text.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "bbig",
+      "short": "BBiG",
+      "title": "Berufsbildungsgesetz",
+      "type": "Gesetz",
+      "url": "https://www.gesetze-im-internet.de/bbig_2005/",
+      "classification": "Ergänzender Gesetzestext",
+      "basis": "Beispiel individueller Dokumentationspflicht: § 11 BBiG",
+      "basisUrl": "https://www.gesetze-im-internet.de/bbig_2005/__11.html",
+      "trigger": "Berufsausbildung im Anwendungsbereich des BBiG.",
+      "requiredContent": "§ 11 regelt die Vertragsabfassung und Übermittlung beziehungsweise Aushändigung an Auszubildende und gegebenenfalls gesetzliche Vertreter.",
+      "note": "Für Ausbildungsbetriebe sinnvoll. Als ergänzenden Gesetzestext führen, nicht ohne konkrete andere Grundlage als allgemein volltext-aushangpflichtig kennzeichnen.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "gewo",
+      "short": "GewO",
+      "title": "Gewerbeordnung · arbeitsrechtlicher Auszug",
+      "type": "Gesetz",
+      "url": "https://www.gesetze-im-internet.de/gewo/",
+      "classification": "Ergänzender Gesetzestext",
+      "basis": "Insbesondere §§ 105–110 GewO",
+      "basisUrl": "https://www.gesetze-im-internet.de/gewo/__106.html",
+      "trigger": "Arbeitsverhältnisse im jeweiligen Anwendungsbereich; Auszug behandelt unter anderem Weisungsrecht, Entgeltzahlung und Zeugnis.",
+      "requiredContent": "Keine gesonderte Volltext-Aushangpflicht aus dem verifizierten § 106 ableiten.",
+      "note": "Fehlt gegenüber der Walhalla-Ausgabe 2026; sinnvolle Ergänzung unter Alle Gesetze. Optional nur arbeitsrechtlichen Auszug importieren.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "fpersg",
+      "short": "FPersG",
+      "title": "Gesetz über das Fahrpersonal von Kraftfahrzeugen und Straßenbahnen (Fahrpersonalgesetz)",
+      "type": "Gesetz",
+      "url": "https://www.gesetze-im-internet.de/fahrpersstg/",
+      "classification": "Ergänzender branchenspezifischer Gesetzestext",
+      "basis": "§ 1 FPersG",
+      "basisUrl": "https://www.gesetze-im-internet.de/fahrpersstg/__1.html",
+      "trigger": "Fahrpersonal von Kraftfahrzeugen und Straßenbahnen im öffentlichen Straßenverkehr im gesetzlichen Anwendungsbereich; Ausnahmen nach § 1 Abs. 2 beachten.",
+      "requiredContent": "Branchenspezifische Vorschriften zu Fahrpersonal und Arbeitszeitorganisation.",
+      "note": "Nicht als allgemein für jeden Betrieb volltext-aushangpflichtig kennzeichnen. Gehört für betroffene Fuhrpark-/Transportkonstellationen in die erweiterte Bibliothek.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "fpersv",
+      "short": "FPersV",
+      "title": "Verordnung zur Durchführung des Fahrpersonalgesetzes (Fahrpersonalverordnung)",
+      "type": "Verordnung",
+      "url": "https://www.gesetze-im-internet.de/fpersv/",
+      "classification": "Ergänzender branchenspezifischer Verordnungstext",
+      "basis": "Insbesondere § 1 FPersV",
+      "basisUrl": "https://www.gesetze-im-internet.de/fpersv/__1.html",
+      "trigger": "Die von der Verordnung erfassten Fahrzeug-/Transportkonstellationen unter Berücksichtigung der Ausnahmen.",
+      "requiredContent": "Lenk-/Ruhezeit- und Nachweispflichten; konkrete Pflichten richten sich nach Fahrzeugart, Einsatz und den europäischen Vorschriften.",
+      "note": "Nicht als allgemeine Volltext-Aushangpflicht darstellen. Keine universellen Tonnen-, Mitführungs- oder Fristwerte im Portaltext festschreiben, wenn EU-Recht und Ausnahmen nicht mitgeprüft werden.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "miloaufzv",
+      "short": "MiLoAufzV",
+      "title": "Verordnung zur Abwandlung der Pflicht zur Arbeitszeitaufzeichnung nach dem Mindestlohngesetz und dem Arbeitnehmer-Entsendegesetz (Mindestlohnaufzeichnungsverordnung)",
+      "type": "Verordnung",
+      "url": "https://www.gesetze-im-internet.de/miloaufzv/",
+      "classification": "Ergänzender Verordnungstext",
+      "basis": "§ 1 MiLoAufzV",
+      "basisUrl": "https://www.gesetze-im-internet.de/miloaufzv/__1.html",
+      "trigger": "Ausschließlich mobile Tätigkeiten ohne konkrete Vorgaben zu Beginn/Ende und mit eigenverantwortlicher täglicher Zeiteinteilung nach den Einzelvoraussetzungen des § 1.",
+      "requiredContent": "Spezielle Erleichterung der Arbeitszeitaufzeichnung auf die tatsächliche tägliche Dauer.",
+      "note": "Dokumentationsregel, keine daraus folgende allgemeine Volltext-Aushangpflicht. Passt als Ergänzung zu bereits vorhandenem MiLoG.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    },
+    {
+      "id": "milodokv",
+      "short": "MiLoDokV",
+      "title": "Verordnung zu den Dokumentationspflichten nach den §§ 16 und 17 des Mindestlohngesetzes und den §§ 18 und 19 des Arbeitnehmer-Entsendegesetzes in Bezug auf bestimmte Arbeitnehmergruppen (Mindestlohndokumentationspflichtenverordnung)",
+      "type": "Verordnung",
+      "url": "https://www.gesetze-im-internet.de/milodokv_2015/",
+      "classification": "Ergänzender Verordnungstext",
+      "basis": "§ 1 MiLoDokV",
+      "basisUrl": "https://www.gesetze-im-internet.de/milodokv_2015/__1.html",
+      "trigger": "Die im Verordnungstext bezeichneten Arbeitnehmergruppen und Entgelt-/Verwandtschaftskonstellationen; Nachweise nach Abs. 3 beachten.",
+      "requiredContent": "Beschränkungen bestimmter Melde-, Aufzeichnungs- und Bereithaltungspflichten.",
+      "note": "Dokumentationsregel, keine allgemeine Volltext-Aushangpflicht. Entgeltgrenzen nicht ungeprüft aus älteren Ausgaben übernehmen.",
+      "checkedAt": "2026-11-06",
+      "availability": "official-source-link",
+      "fullTextImported": false
+    }
+  ],
+  "aushangRules": [
+    {
+      "id": "agg-arbgg",
+      "catalogIds": [
+        "agg",
+        "arbgg"
+      ],
+      "title": "AGG, § 61b ArbGG und Beschwerdestellen",
+      "basis": "§ 12 Abs. 5 AGG",
+      "url": "https://www.gesetze-im-internet.de/agg/__12.html",
+      "trigger": "Betrieb oder Dienststelle im Anwendungsbereich des AGG.",
+      "requiredContent": "AGG, § 61b ArbGG und Informationen über die für Beschwerden nach § 13 zuständigen Stellen.",
+      "delivery": "Geeigneter Aushang/Auslegung oder übliche betriebliche Informations- und Kommunikationstechnik.",
+      "note": "ArbGG § 61b ist bereits als Auszug vorhanden; nicht das gesamte ArbGG als zusätzlich allgemein verpflichtend zählen. Beschwerdestelleninformationen sind betriebliche Pflichtangaben.",
+      "kind": "general"
+    },
+    {
+      "id": "arbzg",
+      "catalogIds": [
+        "arbzg"
+      ],
+      "title": "Arbeitszeitgesetz und einschlägige Regelungen",
+      "basis": "§ 16 Abs. 1 ArbZG",
+      "url": "https://www.gesetze-im-internet.de/arbzg/__16.html",
+      "trigger": "Arbeitgeber im Anwendungsbereich des ArbZG.",
+      "requiredContent": "ArbZG, für den Betrieb geltende darauf beruhende Rechtsverordnungen sowie die in § 16 Abs. 1 bezeichneten Tarifverträge und Betriebs-/Dienstvereinbarungen.",
+      "delivery": "Übliche betriebliche Informations- und Kommunikationstechnik oder geeignete Auslage/Aushang.",
+      "kind": "general"
+    },
+    {
+      "id": "muschg",
+      "catalogIds": [
+        "muschg"
+      ],
+      "title": "Mutterschutzgesetz",
+      "basis": "§ 26 MuSchG",
+      "url": "https://www.gesetze-im-internet.de/muschg_2018/__26.html",
+      "trigger": "Regelmäßig mehr als drei beschäftigte Frauen; Abs. 2 enthält gesonderte Heimarbeitsfälle.",
+      "requiredContent": "Kopie des Gesetzes.",
+      "delivery": "Geeignete Auslage/Aushang; entfällt bei jederzeit zugänglichem elektronischem Verzeichnis für die Beschäftigten.",
+      "note": "Schwelle ist mehr als drei, nicht mindestens drei.",
+      "kind": "conditional"
+    },
+    {
+      "id": "jarbschg-47",
+      "catalogIds": [
+        "jarbschg"
+      ],
+      "title": "Jugendarbeitsschutzgesetz und Aufsichtsbehörde",
+      "basis": "§ 47 JArbSchG",
+      "url": "https://www.gesetze-im-internet.de/jarbschg/__47.html",
+      "trigger": "Regelmäßig mindestens ein beschäftigter Jugendlicher.",
+      "requiredContent": "Kopie des JArbSchG und Anschrift der zuständigen Aufsichtsbehörde.",
+      "delivery": "Übliche betriebliche Informations- und Kommunikationstechnik oder geeignete Auslage/Aushang.",
+      "kind": "conditional"
+    },
+    {
+      "id": "jarbschg-48",
+      "catalogIds": [
+        "jarbschg"
+      ],
+      "title": "Arbeitszeit- und Pauseninformation Jugendlicher",
+      "basis": "§ 48 JArbSchG",
+      "url": "https://www.gesetze-im-internet.de/jarbschg/__48.html",
+      "trigger": "Regelmäßig mindestens drei beschäftigte Jugendliche.",
+      "requiredContent": "Beginn und Ende der regelmäßigen täglichen Arbeitszeit und Pausen der Jugendlichen.",
+      "delivery": "Übliche betriebliche Informations- und Kommunikationstechnik oder geeignete Auslage/Aushang.",
+      "note": "Dies ist eine zusätzliche konkrete betriebliche Information; der Gesetzestext allein genügt dafür nicht.",
+      "kind": "conditional"
+    },
+    {
+      "id": "tvg",
+      "catalogIds": [
+        "tvg"
+      ],
+      "title": "Tatsächlich anwendbare Tarifverträge",
+      "basis": "§ 8 TVG",
+      "url": "https://www.gesetze-im-internet.de/tvg/__8.html",
+      "trigger": "Im Betrieb anwendbare Tarifverträge beziehungsweise die dort bezeichneten rechtskräftigen Beschlüsse.",
+      "requiredContent": "Die anwendbaren Tarifverträge und einschlägige rechtskräftige Beschlüsse nach § 99 ArbGG.",
+      "delivery": "Im Betrieb bekanntmachen.",
+      "note": "Der Aushang des TVG als Gesetz ersetzt die Bekanntgabe des tatsächlichen Tarifvertrages nicht.",
+      "kind": "conditional"
+    },
+    {
+      "id": "betriebsvereinbarungen",
+      "catalogIds": [
+        "betrvg"
+      ],
+      "title": "Betriebsvereinbarungen",
+      "basis": "§ 77 Abs. 2 BetrVG",
+      "url": "https://www.gesetze-im-internet.de/betrvg/__77.html",
+      "trigger": "Es bestehen Betriebsvereinbarungen.",
+      "requiredContent": "Die tatsächlichen Betriebsvereinbarungen.",
+      "delivery": "An geeigneter Stelle im Betrieb auslegen.",
+      "note": "Ein optionaler Upload kann ergänzen; aus der verifizierten Vorschrift keine pauschale Zusicherung ausschließlich digitaler Pflichterfüllung ableiten.",
+      "kind": "conditional"
+    },
+    {
+      "id": "dguv-access",
+      "catalogIds": [
+        "dguv1",
+        "dguv2",
+        "dguv3",
+        "arbschg"
+      ],
+      "title": "Zugang zu einschlägigen Arbeitsschutzvorschriften und Regeln",
+      "basis": "§ 12 DGUV Vorschrift 1",
+      "url": "https://www.bgn.de/praevention-arbeitshilfen/praxishilfen-service/vorschriften-und-arbeitssicherheitsinformationen/unfallverhuetungsvorschriften/DGUV-Vorschrift-1.pdf",
+      "trigger": "Geltungsbereich der jeweiligen Unfallverhütungsvorschrift; zuständigen Unfallversicherungsträger und Trägerfassung prüfen.",
+      "requiredContent": "Für das Unternehmen geltende UVV und Unfallversicherungsträger-Regeln sowie einschlägige staatliche Vorschriften und Regeln zugänglich machen.",
+      "delivery": "Geeignete zugängliche Stelle; besonders betrauten Personen die zuständigkeitsbezogenen Regeln zur Verfügung stellen.",
+      "note": "Das erklärt die breitere Aufnahme einschlägiger Arbeitsschutztexte, begründet aber keine beliebige Pflicht zu jedem arbeitsrechtlichen Gesetz. BGN-Fassung nur mit Trägerhinweis verwenden.",
+      "kind": "conditional"
+    },
+    {
+      "id": "sgb7-insurer",
+      "catalogIds": [
+        "sgb7"
+      ],
+      "title": "Zuständiger Unfallversicherungsträger",
+      "basis": "§ 138 SGB VII",
+      "url": "https://www.gesetze-im-internet.de/sgb_7/__138.html",
+      "trigger": "Im Unternehmen tätige Versicherte.",
+      "requiredContent": "Welcher Unfallversicherungsträger zuständig ist und an welchem Ort seine für Entschädigungen zuständige Geschäftsstelle liegt.",
+      "delivery": "Versicherte unterrichten.",
+      "note": "Konkrete Versicherungsinformation, keine Pflicht zum Volltextaushang des SGB VII.",
+      "kind": "conditional"
+    },
+    {
+      "id": "hag",
+      "catalogIds": [
+        "hag"
+      ],
+      "title": "Entgeltverzeichnisse bei Heimarbeit",
+      "basis": "§ 8 HAG",
+      "url": "https://www.gesetze-im-internet.de/hag/__8.html",
+      "trigger": "Ausgabe oder Abnahme von Heimarbeit; gesetzliche Ausnahmen beachten.",
+      "requiredContent": "Entgeltverzeichnisse, Nachweise sonstiger Vertragsbedingungen und einschlägige Entgeltregelungen.",
+      "delivery": "In Ausgabe-/Abnahmeräumen offen auslegen; bei Lieferung in Wohnung/Betriebsstätte zur Einsicht vorlegen.",
+      "note": "Der aktuelle § 6 HAG regelt Listenübermittlung an die Behörde, nicht einen frei zugänglichen Aushang sämtlicher Heimarbeiterdaten. Veraltete Merkblätter nicht ungeprüft übernehmen.",
+      "kind": "conditional"
+    },
+    {
+      "id": "arbstattv-plan",
+      "catalogIds": [
+        "arbstattv"
+      ],
+      "title": "Flucht- und Rettungsplan",
+      "basis": "§ 4 Abs. 4 ArbStättV",
+      "url": "https://www.gesetze-im-internet.de/arbst_ttv_2004/__4.html",
+      "trigger": "Lage, Ausdehnung und Art der Benutzung der Arbeitsstätte erfordern einen Plan.",
+      "requiredContent": "Arbeitsstättenspezifischer Flucht- und Rettungsplan.",
+      "delivery": "An geeigneten Stellen in der Arbeitsstätte auslegen oder aushängen; Übungen in angemessenen Abständen.",
+      "note": "Nicht jede Arbeitsstätte benötigt unabhängig von ihren Umständen einen Plan. Ein allgemeiner Verordnungstext ist kein Fluchtplan.",
+      "kind": "conditional"
+    },
+    {
+      "id": "gefahrstoff-instructions",
+      "catalogIds": [
+        "gefstoffv"
+      ],
+      "title": "Gefahrstoff-Betriebsanweisungen",
+      "basis": "§ 14 Abs. 1 GefStoffV",
+      "url": "https://www.gesetze-im-internet.de/gefstoffv_2010/__14.html",
+      "trigger": "Einschlägige Gefahrstofftätigkeiten unter Berücksichtigung der Gefährdungsbeurteilung und gesetzlichen Ausnahmen.",
+      "requiredContent": "Schriftliche verständliche arbeitsplatzbezogene Betriebsanweisung; Zugang zu einschlägigen Stoffinformationen und Sicherheitsdatenblättern.",
+      "delivery": "Den Beschäftigten in verständlicher Form und Sprache zugänglich machen; bei maßgeblichen Änderungen aktualisieren.",
+      "note": "Der Gesetzestext allein erfüllt die Pflicht zur konkreten Betriebsanweisung nicht. Unterweisung bleibt eine weitere eigene Pflicht.",
+      "kind": "conditional"
+    },
+    {
+      "id": "tzbfg-vacancies",
+      "catalogIds": [
+        "tzbfg"
+      ],
+      "title": "Information über unbefristete Arbeitsplätze",
+      "basis": "§ 18 Abs. 1 TzBfG",
+      "url": "https://www.gesetze-im-internet.de/tzbfg/__18.html",
+      "trigger": "Es gibt befristet beschäftigte Arbeitnehmer und entsprechende unbefristete Arbeitsplätze, die besetzt werden sollen.",
+      "requiredContent": "Information über diese unbefristeten Arbeitsplätze.",
+      "delivery": "Allgemeine Bekanntgabe an geeigneter zugänglicher Stelle ist möglich.",
+      "note": "Betriebliche Stelleninformation, keine daraus folgende Volltext-Aushangpflicht des TzBfG.",
+      "kind": "conditional"
+    },
+    {
+      "id": "hinschg-external-channels",
+      "catalogIds": [
+        "hinschg"
+      ],
+      "title": "Informationen über externe Meldeverfahren",
+      "basis": "§ 13 Abs. 2 in Verbindung mit § 12 HinSchG",
+      "url": "https://www.gesetze-im-internet.de/hinschg/__13.html",
+      "trigger": "Interne Meldestelle im Anwendungsbereich des Gesetzes; regelmäßig ab 50 Beschäftigten, bestimmte Branchen unabhängig von der Zahl.",
+      "requiredContent": "Klare und leicht zugängliche Informationen über externe Meldeverfahren und einschlägige EU-Meldeverfahren.",
+      "delivery": "Für Beschäftigte bereithalten.",
+      "note": "Der Gesetzesvolltext ersetzt diese verfahrensbezogenen Informationen nicht.",
+      "kind": "conditional"
+    },
+    {
+      "id": "notice-vermbg5",
+      "catalogIds": [
+        "vermbg5"
+      ],
+      "title": "Fünftes Gesetz zur Förderung der Vermögensbildung der Arbeitnehmer",
+      "basis": "§ 11 Abs. 4 5. VermBG",
+      "url": "https://www.gesetze-im-internet.de/vermbg_2/__11.html",
+      "trigger": "Der Arbeitgeber bestimmt einen Termin für das Verlangen der einmaligen vermögenswirksamen Anlage von Teilen des Arbeitslohns.",
+      "requiredContent": "Der festgelegte Termin ist in jedem Kalenderjahr erneut in geeigneter Form bekanntzugeben.",
+      "note": "Bekanntzumachen ist der konkrete Termin. Die Vorschrift verlangt keinen allgemeinen Aushang des gesamten 5. VermBG.",
+      "kind": "conditional"
+    },
+    {
+      "id": "notice-wo",
+      "catalogIds": [
+        "wo"
+      ],
+      "title": "Erste Verordnung zur Durchführung des Betriebsverfassungsgesetzes (Wahlordnung)",
+      "basis": "§ 2 Abs. 4, § 3 Abs. 4, § 18 WO",
+      "url": "https://www.gesetze-im-internet.de/betrvgdv1wo/__2.html",
+      "trigger": "Einleitung und Durchführung einer Betriebsratswahl; für andere Wahlverfahren gelten die jeweiligen Sonderbestimmungen.",
+      "requiredContent": "Wählerliste und Wahlordnung ab Einleitung bis Abschluss der Stimmabgabe; Wahlausschreiben sowie später die gewählten Mitglieder entsprechend den jeweiligen Fristen.",
+      "note": "Nicht ständig für jeden Betrieb vorgeschrieben. Personenbezogene Wahlunterlagen gehören nicht in einen öffentlich zugänglichen allgemeinen Gesetzeskatalog.",
+      "kind": "conditional"
+    },
+    {
+      "id": "notice-schwbvwo",
+      "catalogIds": [
+        "schwbvwo"
+      ],
+      "title": "Wahlordnung Schwerbehindertenvertretungen",
+      "basis": "§ 3 Abs. 2, § 5 Abs. 1 Nr. 4 und Abs. 2, §§ 8, 15 SchwbVWO",
+      "url": "https://www.gesetze-im-internet.de/schwbwo/__5.html",
+      "trigger": "Durchführung der Wahl einer Schwerbehindertenvertretung nach dem einschlägigen Wahlverfahren.",
+      "requiredContent": "Liste der Wahlberechtigten zur Einsicht; Wahlausschreiben ab Erlass bis Wahltag; Bewerbernamen spätestens eine Woche vor Stimmabgabe bis deren Abschluss; Gewählte für zwei Wochen.",
+      "note": "Die bloße Aufnahme der Verordnung ersetzt die konkreten Wahlbekanntmachungen nicht. Das vereinfachte Wahlverfahren hat eigene Regeln.",
+      "kind": "conditional"
+    },
+    {
+      "id": "notice-drucklv",
+      "catalogIds": [
+        "drucklv"
+      ],
+      "title": "Verordnung über Arbeiten in Druckluft (Druckluftverordnung)",
+      "basis": "§ 1, § 12 Abs. 2 DruckLV",
+      "url": "https://www.gesetze-im-internet.de/drucklv/__12.html",
+      "trigger": "Gewerbsmäßig durch einen Arbeitgeber ausgeführte Arbeiten in Druckluft; § 1 Abs. 2 nimmt Arbeiten in Taucherglocken ohne Schleusen und Taucherarbeiten aus.",
+      "requiredContent": "Name, Anschrift und Telefonnummer des ermächtigten Arztes.",
+      "note": "Aushang der konkreten Arztangaben, kein pauschaler Volltextaushang der Verordnung. § 20 enthält zusätzliche Belehrungs- und Merkblattpflichten.",
+      "kind": "conditional"
+    },
+    {
+      "id": "notice-strlschg",
+      "catalogIds": [
+        "strlschg"
+      ],
+      "title": "Gesetz zum Schutz vor der schädlichen Wirkung ionisierender Strahlung (Strahlenschutzgesetz)",
+      "basis": "§ 46 StrlSchV",
+      "url": "https://www.gesetze-im-internet.de/strlschv_2018/__46.html",
+      "trigger": "Der Strahlenschutzverantwortliche eines einschlägigen Betriebs oder selbständigen Zweigbetriebs, wenn regelmäßig mindestens eine Person beschäftigt wird oder unter Aufsicht eines anderen tätig ist.",
+      "requiredContent": "Strahlenschutzgesetz und Strahlenschutzverordnung müssen zur Einsicht ständig verfügbar sein.",
+      "note": "Spezielle Strahlenschutzkonstellation; keine allgemeine Pflicht für jeden Arbeitgeber.",
+      "kind": "conditional"
+    },
+    {
+      "id": "notice-strlschv",
+      "catalogIds": [
+        "strlschv"
+      ],
+      "title": "Verordnung zum Schutz vor der schädlichen Wirkung ionisierender Strahlung (Strahlenschutzverordnung)",
+      "basis": "§ 46 StrlSchV; ergänzend § 45 StrlSchV",
+      "url": "https://www.gesetze-im-internet.de/strlschv_2018/__46.html",
+      "trigger": "Entsprechende Strahlenschutzbetriebe mit regelmäßig mindestens einer beschäftigten oder unter Aufsicht tätigen Person.",
+      "requiredContent": "Gesetz und Verordnung zur Einsicht ständig verfügbar halten.",
+      "note": "Die betriebliche Strahlenschutzanweisung nach § 45 ist ein eigenes Dokument. Für die in § 45 Abs. 4 genannten Anzeige-Fälle entsteht deren Erlasspflicht nur bei behördlicher Verpflichtung.",
+      "kind": "conditional"
+    },
+    {
+      "id": "notice-bayladschlg",
+      "catalogIds": [
+        "bayladschlg"
+      ],
+      "title": "Bayerisches Ladenschlussgesetz",
+      "basis": "Art. 9 Abs. 6 Satz 1 Nr. 1, Abs. 7 BayLadSchlG",
+      "url": "https://www.gesetze-bayern.de/Content/Document/BayLadSchlG-9",
+      "trigger": "Verkaufsstellen in Bayern mit in der Regel mindestens einem Arbeitnehmer; Ausnahme für pharmazeutisch vorgebildete Arbeitnehmer in Apotheken nach Abs. 7 beachten.",
+      "requiredContent": "Wortlaut des Gesetzes und der für die Verkaufsstelle geltenden, aufgrund dieses Gesetzes erlassenen Rechtsverordnungen.",
+      "note": "Seit 01.08.2025 gilt in Bayern ein eigenes Ladenschlussgesetz. Bei Günzburg relevant, sofern tatsächlich eine Verkaufsstelle besteht. Nicht jedes Produktionswerk ist eine Verkaufsstelle.",
+      "kind": "conditional"
+    },
+    {
+      "id": "notice-baustellv",
+      "catalogIds": [
+        "baustellv"
+      ],
+      "title": "Verordnung über Sicherheit und Gesundheitsschutz auf Baustellen (Baustellenverordnung)",
+      "basis": "§ 2 Abs. 2 BaustellV",
+      "url": "https://www.gesetze-im-internet.de/baustellv/__2.html",
+      "trigger": "Baustelle voraussichtlich länger als 30 Arbeitstage mit mehr als 20 gleichzeitig Beschäftigten oder mit voraussichtlich mehr als 500 Personentagen.",
+      "requiredContent": "Vorankündigung mit mindestens den Angaben des Anhangs I; spätestens zwei Wochen vor Einrichtung an die Behörde übermitteln, sichtbar auf der Baustelle aushängen und bei erheblichen Änderungen anpassen.",
+      "note": "Gefordert ist die konkrete Baustellen-Vorankündigung. Der bloße Gesetzeslink oder eine Sammlung im Portal ersetzt diesen sichtbaren Baustellenaushang nicht.",
+      "kind": "conditional"
+    },
+    {
+      "id": "federal-retail-display",
+      "catalogIds": [
+        "ladschlg",
+        "sonntverkv"
+      ],
+      "title": "Bundesrechtliche Auslagepflicht in betroffenen Verkaufsstellen",
+      "basis": "§ 21 Abs. 1 Nr. 1 LadSchlG",
+      "url": "https://www.gesetze-im-internet.de/ladschlg/__21.html",
+      "trigger": "Nur soweit das Bundes-Ladenschlussrecht am Standort noch anwendbar ist und in der Verkaufsstelle regelmäßig mindestens ein Arbeitnehmer beschäftigt wird. Vorrangiges Landesrecht prüfen.",
+      "requiredContent": "Abdruck des Ladenschlussgesetzes und der dazu erlassenen, für die jeweilige Verkaufsstellenart einschlägigen Rechtsverordnungen auslegen oder aushängen. Die Sonntagsverkaufsverordnung ist nur bei entsprechender Anwendbarkeit umfasst.",
+      "delivery": "An geeigneter Stelle in der Verkaufsstelle auslegen oder aushängen.",
+      "note": "Bayern hat seit 01.08.2025 eigenes Ladenschlussrecht. Eine reine Produktionsstätte ist keine Verkaufsstelle. Der allgemeine Online-Link allein belegt keine Erfüllung der Auslagepflicht.",
+      "kind": "conditional"
+    }
+  ]
+}

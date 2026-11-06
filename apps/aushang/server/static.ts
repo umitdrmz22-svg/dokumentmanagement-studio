@@ -1,0 +1,3 @@
+import { assets } from './generated-assets';
+import { secureHeaders } from './security';
+export function staticAsset(path:string){const asset=assets[path];if(!asset)return new Response('Not found',{status:404});const types:Record<string,string>={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json'};const ext=path.slice(path.lastIndexOf('.'));const headers=secureHeaders(types[ext]||'application/octet-stream');if(path==='/sw.js')headers.set('Service-Worker-Allowed','/');const body=asset.binary?Uint8Array.from(atob(asset.body),c=>c.charCodeAt(0)):asset.body;return new Response(body,{headers});}
