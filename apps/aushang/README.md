@@ -20,6 +20,16 @@ Beispiel einer späteren Betreiberanweisung: „Zahlung zu Rechnung R-2026-001 f
 
 Für einen entgeltlichen Rollout sind das konkrete Angebot, Rechnungs-/Steuerprozess und die tatsächlichen Hosting-/Auftragsverarbeitungs-/Transferbedingungen gesondert festzulegen. Werbung ist aktuell nicht eingebunden. Die technische Standortzuordnung ersetzt keinen Vertrag und prüft keinen tatsächlichen Aufenthaltsort.
 
+## Bekanntmachungen im Werk und gemeinsame Lesegeräte
+
+Die Aushang-Startseite verwendet eine typografisch betonte Verzeichnisansicht mit warmem Papierhintergrund, dunkler Schrift und zurückhaltenden Linien. Gemerkte Titel sind direkt oberhalb der Liste erreichbar. Rechts stehen Werkbekanntmachungen, tatsächlicher Quellenstand und Vollbildzugriff. Gerätesitzungen zeigen keine Lizenzlaufzeit oder Verwaltungsschaltflächen. Alle fachlichen Inhalte bleiben hinter Anmeldung und Freischaltung.
+
+`site_notices` enthält pro Konto getrennte JSON-Fassungen für Entwurf und Veröffentlichung. Nur Passwortsitzungen können Entwürfe speichern und ausdrücklich veröffentlichen; Geräteleser erhalten ausschließlich veröffentlichte Angaben. Der Server ignoriert übermittelte Kontozuordnungen, begrenzt Eingaben und verhindert überschreibende Bearbeitung mit Revisionsnummern. Die Oberfläche kodiert sämtliche Freitexte. Bei einem Kontowechsel werden die geladenen Werkangaben verworfen.
+
+Felder: AGG-Beschwerdestelle, Aufsichtsbehörde bei Jugendlichen, Arbeitszeiten/Pausen bei mindestens drei Jugendlichen sowie Hinweise auf geltende Tarifverträge/Betriebsvereinbarungen. Fehlende Angaben und ungeprüfte Anwendbarkeit werden ausdrücklich gekennzeichnet. Keine zuständige Person, Behörde, Adresse oder Arbeitszeit wird erfunden oder automatisch als geprüft bestätigt. Die AGG-Stelle kann nicht als generell unzutreffend deaktiviert werden. Ein Hinweis auf Vereinbarungen ersetzt weder die erforderlichen Volltexte noch deren gesetzliche Bekanntmachungsform.
+
+Die neue Tabelle wird durch eine additive Migration angelegt; bestehende Konten, Lizenzen und Gerätefreigaben bleiben unberührt. Die Anzeige eines Freigabedatums ist keine automatische Rechtsprüfung. Für Geräte-/Internetausfälle ist ein geeigneter Papier- oder lokaler PDF-Ersatz betrieblich vorzuhalten; diese Änderung implementiert keinen automatischen Offline-Cache.
+
 ## Freiwillige Firmendokumente
 
 Der Bereich ist für jedes Konto zunächst deaktiviert. Nur die Passwortverwaltung kann ihn aktivieren, PDF/DOCX-Dateien hochladen (10 MB je Datei; 100 Dateien und 100 MB insgesamt), Metadaten ändern oder veröffentlichen. Uploads sind zunächst Entwürfe. Freigegebene Geräte sehen ausschließlich veröffentlichte Dateien ihres eigenen Standortkontos. Deaktivieren blendet den Bereich aus, ohne Daten zu löschen. Papierkorb und Wiederherstellung sind verfügbar; endgültiges Löschen erfordert eine gesonderte Bestätigung. Nach Lizenzablauf kann die Passwortverwaltung vorhandene Unterlagen weiterhin exportieren und verwalten, jedoch nicht neu hochladen.

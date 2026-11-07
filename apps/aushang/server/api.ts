@@ -4,6 +4,7 @@ import {challengeDevice,deviceId,enrollDevice,revokeDevice,unlockDevice} from '.
 import {sourceIndex} from './source-index';
 import {activateCustomer,customerRequests,grantDemoAccess,suspendCustomer} from './licensing';
 import {documentsAPI} from './documents';
+import {noticesAPI,siteNotices} from './site-notices';
 import {portalCatalog,portalTopics,portalMetadata} from './portal-catalog';
 import { bodyJSON,clean,constantEqual,digest,getSessionToken,hashPassword,HttpError,json,profile,randomToken,rateLimit,requireOrigin,sessionCookie,username,validatePassword,verifyPassword } from './security';
 import { beginUpdate,continueUpdate,publishUpdate,readLegalText,readPdf,updateMeta,maintenanceStatus,stageOfficialSource } from './updates';
@@ -80,6 +81,7 @@ async function api(request:Request){try{
   return json({ok:true,recoveryCode},200,{'Set-Cookie':await createSession(database,request,row.id,false)});
  }
  const account=await requireAccount(database,request);
+ if(path==='/api/site-notices'||path==='/api/site-notices/publish'){const session=await sessionFor(database,request);if(!session)throw new HttpError(401,'Bitte erneut anmelden.');return await noticesAPI(database,request,session);}
  if(path==='/api/documents'||path.startsWith('/api/documents/')){
   const session=await sessionFor(database,request);if(!session)throw new HttpError(401,'Bitte erneut anmelden.');return await documentsAPI(database,env.BUCKET,request,session);
  }
@@ -95,7 +97,7 @@ async function api(request:Request){try{
  if(deviceMatch&&request.method==='DELETE'){
   await requirePasswordSession(database,request);await revokeDevice(database,account.id,deviceId(deviceMatch[1]));return json({ok:true});
  }
- if(request.method==='GET'&&['/api/catalog','/api/public/catalog'].includes(path)){requireLicense(account);return json({catalog:portalCatalog,topics:portalTopics,...portalMetadata});}
+ if(request.method==='GET'&&['/api/catalog','/api/public/catalog'].includes(path)){requireLicense(account);return json({catalog:portalCatalog,topics:portalTopics,...portalMetadata,siteNotices:await siteNotices(database,account.id)});}
  if(request.method==='GET'&&['/api/sources','/api/public/sources'].includes(path)){requireLicense(account);return json(await sourceIndex(database));}
  const match=path.match(/^\/api\/texts\/([a-z0-9]+)$/);if(request.method==='GET'&&match){requireLicense(account);return json(await readLegalText(database,match[1]));}
  const pdf=path.match(/^\/api\/pdf\/(dguv[123])$/);if(request.method==='GET'&&pdf){requireLicense(account);if(!env.BUCKET)throw new HttpError(503,'Dokumentendienst nicht verfügbar.');return readPdf(database,env.BUCKET,pdf[1]);}
