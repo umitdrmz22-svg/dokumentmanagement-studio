@@ -1,0 +1,698 @@
+{
+  "retrieved": "2026-11-04",
+  "sources": [
+    {
+      "id": "agg",
+      "url": "https://www.gesetze-im-internet.de/agg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/agg/xml.zip",
+      "sourceFile": "BJNR189710006.xml",
+      "sha256": "28f399667634fbf6e99cf0640fc286ef3c3e5d32ab1b57b45c657c7b35e322b1",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175555",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 15 G v. 22.12.2023 I Nr. 414"
+      ],
+      "fullTitle": "Allgemeines Gleichbehandlungsgesetz",
+      "abbreviation": "AGG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/agg/AGG.pdf"
+    },
+    {
+      "id": "arbgg",
+      "url": "https://www.gesetze-im-internet.de/arbgg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/arbgg/xml.zip",
+      "sourceFile": "BJNR012670953.xml",
+      "sha256": "93da50a78ebbe6a9cf53c0c12805f2cc48d712fe834554ac74709c73d26e9ba1",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20261029220010",
+      "version": [
+        "NeufNeugefasst durch Bek. v. 2.7.1979 I 853, 1036;",
+        "Standzuletzt geändert durch Art. 7 G v. 20.5.2026 I Nr. 152",
+        "Hinweis: Änderung durch Art. 11 G v. 22.10.2026 I Nr. 321 textlich nachgewiesen, dokumentarisch noch nicht abschließend bearbeitet",
+        "SonstMittelbare Änderung durch Art. 154a Nr. 3 Buchst. a G v. 20.11.2019 I 1626 ist nicht ausführbar, da das geänderte G v. 21.6.2019 I 846 zum Zeitpunkt des Inkrafttretens des mittelbaren Änderungsgesetzes bereits zum 1.11.2019 in Kraft getreten war"
+      ],
+      "fullTitle": "Arbeitsgerichtsgesetz",
+      "abbreviation": "ArbGG",
+      "excerpt": [
+        "§ 61b"
+      ],
+      "pdfUrl": "https://www.gesetze-im-internet.de/arbgg/ArbGG.pdf"
+    },
+    {
+      "id": "arbzg",
+      "url": "https://www.gesetze-im-internet.de/arbzg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/arbzg/xml.zip",
+      "sourceFile": "BJNR117100994.xml",
+      "sha256": "1bb557bc762742bbbdcd897feccb2db1b1d162ec81ea79902eaeedb5a000695e",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20241231222246",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 52 G v. 23.10.2024 I Nr. 323"
+      ],
+      "fullTitle": "Arbeitszeitgesetz",
+      "abbreviation": "ArbZG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/arbzg/ArbZG.pdf"
+    },
+    {
+      "id": "jarbschg",
+      "url": "https://www.gesetze-im-internet.de/jarbschg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/jarbschg/xml.zip",
+      "sourceFile": "BJNR009650976.xml",
+      "sha256": "20eb5603c6f040732a3e94317305d49f302ff79c0671b5a51cc5bad1d5081e48",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506174858",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 53 G v. 23.10.2024 I Nr. 323"
+      ],
+      "fullTitle": "Gesetz zum Schutze der arbeitenden Jugend",
+      "abbreviation": "JArbSchG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/jarbschg/JArbSchG.pdf"
+    },
+    {
+      "id": "muschg",
+      "url": "https://www.gesetze-im-internet.de/muschg_2018/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/muschg_2018/xml.zip",
+      "sourceFile": "BJNR122810017.xml",
+      "sha256": "86e5885e53bbddbfda7733ac5a400a91b697ff361b7c607b81f5072205c5bbde",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506174606",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 13 G v. 22.12.2025 I Nr. 371"
+      ],
+      "fullTitle": "Gesetz zum Schutz von Müttern bei der Arbeit, in der Ausbildung und im Studium",
+      "abbreviation": "MuSchG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/muschg_2018/MuSchG.pdf"
+    },
+    {
+      "id": "tvg",
+      "url": "https://www.gesetze-im-internet.de/tvg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/tvg/xml.zip",
+      "sourceFile": "BJNR700550949.xml",
+      "sha256": "3fbea7dba027779232f044a844ca78ca427edfbd23a525bc11500fbb36fc9f8f",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260430220022",
+      "version": [
+        "NeufNeugefasst durch Bek. v. 25.8.1969 I 1323;",
+        "Standzuletzt geändert durch Art. 7 G v. 27.4.2026 I Nr. 119"
+      ],
+      "fullTitle": "Tarifvertragsgesetz",
+      "abbreviation": "TVG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/tvg/TVG.pdf"
+    },
+    {
+      "id": "hag",
+      "url": "https://www.gesetze-im-internet.de/hag/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/hag/xml.zip",
+      "sourceFile": "BJNR001910951.xml",
+      "sha256": "441b5664011955a2195d42d95b6f5add9bba2884c1ca8f8afcfed3a5fc00303f",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20241231222012",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 51 G v. 23.10.2024 I Nr. 323"
+      ],
+      "fullTitle": "Heimarbeitsgesetz",
+      "abbreviation": "HAG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/hag/HAG.pdf"
+    },
+    {
+      "id": "ladschlg",
+      "url": "https://www.gesetze-im-internet.de/ladschlg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/ladschlg/xml.zip",
+      "sourceFile": "BJNR008750956.xml",
+      "sha256": "03e2adc365327a035d03122785cda336b328d9cb4d94bbd3eaed538cc197908b",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506174848",
+      "version": [
+        "NeufNeugefasst durch Bek. v. 2.6.2003 I 744;",
+        "Standzuletzt geändert durch Art. 430 V v. 31.8.2015 I 1474"
+      ],
+      "fullTitle": "Gesetz über den Ladenschluss",
+      "abbreviation": "LadSchlG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/ladschlg/LadSchlG.pdf"
+    },
+    {
+      "id": "sonntverkv",
+      "url": "https://www.gesetze-im-internet.de/sonntverkv/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/sonntverkv/xml.zip",
+      "sourceFile": "BJNR018810957.xml",
+      "sha256": "2b83af4ecc40c6b9f46e86a34bd4038404c4430af2702974f5f86ddec225769e",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20130405125927",
+      "version": [
+        "Stand: Geändert durch Art. 3 G v. 30.7.1996 I 1186"
+      ],
+      "fullTitle": "Verordnung über den Verkauf bestimmter Waren an Sonn- und Feiertagen",
+      "abbreviation": "SonntVerkV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/sonntverkv/SonntVerkV.pdf"
+    },
+    {
+      "id": "bgb",
+      "url": "https://www.gesetze-im-internet.de/bgb/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/bgb/xml.zip",
+      "sourceFile": "BJNR001950896.xml",
+      "sha256": "34fc732d8b963eb753ed11236490d3c47c123ccb72b67c2fdda7f19544389e57",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260926215507",
+      "version": [
+        "NeufNeugefasst durch Bek. v. 2.1.2002 I 42, 2909; 2003, 738;",
+        "Standzuletzt geändert durch Art. 6 G v. 23.7.2026 I Nr. 226"
+      ],
+      "fullTitle": "Bürgerliches Gesetzbuch",
+      "abbreviation": "BGB",
+      "excerpt": [
+        "§ 611",
+        "§ 611a",
+        "§ 612",
+        "§ 612a",
+        "§ 613a",
+        "§ 618",
+        "§ 619",
+        "§ 622",
+        "§ 623",
+        "§ 630"
+      ],
+      "pdfUrl": "https://www.gesetze-im-internet.de/bgb/BGB.pdf"
+    },
+    {
+      "id": "beeg",
+      "url": "https://www.gesetze-im-internet.de/beeg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/beeg/xml.zip",
+      "sourceFile": "BJNR274810006.xml",
+      "sha256": "4b4f14b75f9b03433133aa4fc348f1ae753aeb5f92c3fbc44a8b8c857f2bad55",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175847",
+      "version": [
+        "NeufNeugefasst durch Bek. v. 27.01.2015 I 33;",
+        "Standzuletzt geändert durch Art. 19 Abs. 2 G v. 22.12.2025 I Nr. 370"
+      ],
+      "fullTitle": "Gesetz zum Elterngeld und zur Elternzeit",
+      "abbreviation": "BEEG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/beeg/BEEG.pdf"
+    },
+    {
+      "id": "burlg",
+      "url": "https://www.gesetze-im-internet.de/burlg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/burlg/xml.zip",
+      "sourceFile": "BJNR000020963.xml",
+      "sha256": "2d9b4283d7e3a3197923c9a79712b952873646699b8965ad7daa8e92b7bc2170",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20201006212503",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 3 Abs. 3 G v. 20.4.2013 I 868"
+      ],
+      "fullTitle": "Mindesturlaubsgesetz für Arbeitnehmer",
+      "abbreviation": "BUrlG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/burlg/BUrlG.pdf"
+    },
+    {
+      "id": "entgfg",
+      "url": "https://www.gesetze-im-internet.de/entgfg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/entgfg/xml.zip",
+      "sourceFile": "BJNR106500994.xml",
+      "sha256": "84c1be84ada9a2589fb0c494582580ea904ef16ab782b87e2f153b77365f108f",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260602215515",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 2 Abs. 7 G v. 12.5.2026 I Nr. 143"
+      ],
+      "fullTitle": "Gesetz über die Zahlung des Arbeitsentgelts an Feiertagen und im\nKrankheitsfall",
+      "abbreviation": "EntgFG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/entgfg/EntgFG.pdf"
+    },
+    {
+      "id": "kschg",
+      "url": "https://www.gesetze-im-internet.de/kschg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/kschg/xml.zip",
+      "sourceFile": "BJNR004990951.xml",
+      "sha256": "e4d9da79504ba8cda7ac849b01fd4e55232223ed2c5e40d982e670cfca3abdb5",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506174759",
+      "version": [
+        "NeufNeugefasst durch Bek. v. 25.8.1969 I 1317",
+        "Stand: Zuletzt geändert durch Art. 2 G v. 14.6.2021 I 1762"
+      ],
+      "fullTitle": "Kündigungsschutzgesetz",
+      "abbreviation": "KSchG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/kschg/KSchG.pdf"
+    },
+    {
+      "id": "milog",
+      "url": "https://www.gesetze-im-internet.de/milog/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/milog/xml.zip",
+      "sourceFile": "BJNR134810014.xml",
+      "sha256": "f9133387b010444d85b54e6473e3f5d57aab3553cc2125422aa2da49cbde51f3",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260630215549",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 8 Abs. 3 G v. 12.5.2026 I Nr. 137"
+      ],
+      "fullTitle": "Gesetz zur Regelung eines allgemeinen Mindestlohns",
+      "abbreviation": "MiLoG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/milog/MiLoG.pdf"
+    },
+    {
+      "id": "milov5",
+      "url": "https://www.gesetze-im-internet.de/milov5/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/milov5/xml.zip",
+      "sourceFile": "BJNR10C0A0025.xml",
+      "sha256": "735578b3247c38f262f27cb762942e35d2adb98946419752efd40cc5be385b53",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175337",
+      "version": [],
+      "fullTitle": "Fünfte Verordnung zur Anpassung der Höhe des Mindestlohns",
+      "abbreviation": "MiLoV5",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/milov5/MiLoV5.pdf"
+    },
+    {
+      "id": "nachwg",
+      "url": "https://www.gesetze-im-internet.de/nachwg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/nachwg/xml.zip",
+      "sourceFile": "BJNR094610995.xml",
+      "sha256": "5892f4d805acad3095889b7d49ba2bfe982886366bbdfc8f6f84410c4c229ac6",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20241231222227",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 50 G v. 23.10.2024 I Nr. 323"
+      ],
+      "fullTitle": "Gesetz über den Nachweis der für ein Arbeitsverhältnis geltenden\nwesentlichen Bedingungen",
+      "abbreviation": "NachwG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/nachwg/NachwG.pdf"
+    },
+    {
+      "id": "tzbfg",
+      "url": "https://www.gesetze-im-internet.de/tzbfg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/tzbfg/xml.zip",
+      "sourceFile": "BJNR196610000.xml",
+      "sha256": "3bea4321d31330fba7a0dea7ee4d70c85c7ce8b70d881c22fa0def8461b35800",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175609",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 7 G v. 20.7.2022 I 1174"
+      ],
+      "fullTitle": "Gesetz über Teilzeitarbeit und befristete Arbeitsverträge",
+      "abbreviation": "TzBfG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/tzbfg/TzBfG.pdf"
+    },
+    {
+      "id": "pflegezg",
+      "url": "https://www.gesetze-im-internet.de/pflegezg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/pflegezg/xml.zip",
+      "sourceFile": "BJNR089600008.xml",
+      "sha256": "5cd8e3295f2059cf65f933bc6666ff701de175e225c16b13dba08fc71c7e8565",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506174555",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 4 G v. 22.12.2025 I Nr. 371"
+      ],
+      "fullTitle": "Gesetz über die Pflegezeit",
+      "abbreviation": "PflegeZG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/pflegezg/PflegeZG.pdf"
+    },
+    {
+      "id": "fpfzg",
+      "url": "https://www.gesetze-im-internet.de/fpfzg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/fpfzg/xml.zip",
+      "sourceFile": "BJNR256410011.xml",
+      "sha256": "7659a9c50a5ce69c7b410865fbffb7891f0281692a86374185624a1d6d7f1c1c",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175829",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 69 G v. 23.10.2024 I Nr. 323"
+      ],
+      "fullTitle": "Gesetz über die Familienpflegezeit",
+      "abbreviation": "FPfZG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/fpfzg/FPfZG.pdf"
+    },
+    {
+      "id": "entgtranspg",
+      "url": "https://www.gesetze-im-internet.de/entgtranspg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/entgtranspg/xml.zip",
+      "sourceFile": "BJNR215210017.xml",
+      "sha256": "08836007dcee0b7c530e5f8720f07041cef52ad1990dbd136d41918f7ffce9f3",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175737",
+      "version": [
+        "Stand: Geändert durch Art. 25 G v. 5.7.2021 I 3338"
+      ],
+      "fullTitle": "Gesetz zur Förderung der Entgelttransparenz zwischen Frauen und Männern",
+      "abbreviation": "EntgTranspG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/entgtranspg/EntgTranspG.pdf"
+    },
+    {
+      "id": "betrvg",
+      "url": "https://www.gesetze-im-internet.de/betrvg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/betrvg/xml.zip",
+      "sourceFile": "BJNR000130972.xml",
+      "sha256": "5fdf7c393c9a7b7dc2c1bd21580c760d18e795c2134b1b179d098c80f017e43a",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260713215501",
+      "version": [
+        "NeufNeugefasst durch Bek. v. 25.9.2001 I 2518",
+        "Stand: Zuletzt geändert durch Art. 1 G v. 19.7.2024 I Nr. 248"
+      ],
+      "fullTitle": "Betriebsverfassungsgesetz",
+      "abbreviation": "BetrVG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/betrvg/BetrVG.pdf"
+    },
+    {
+      "id": "bdsg",
+      "url": "https://www.gesetze-im-internet.de/bdsg_2018/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/bdsg_2018/xml.zip",
+      "sourceFile": "BJNR209710017.xml",
+      "sha256": "444722e79997741b67ec4bd0641dd223893a26731e0d79914ca4f64045793410",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260713215512",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 3 G v. 12.5.2026 I Nr. 139",
+        "Hinweis: Änderung durch Art. 3 G v. 3.7.2026 I Nr. 199 textlich nachgewiesen, dokumentarisch noch nicht abschließend bearbeitet",
+        "SonstErsetzt G 204-3 v. 20.12.1990 I 2954, 2955 (BDSG 1990)"
+      ],
+      "fullTitle": "Bundesdatenschutzgesetz",
+      "abbreviation": "BDSG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/bdsg_2018/BDSG.pdf"
+    },
+    {
+      "id": "hinschg",
+      "url": "https://www.gesetze-im-internet.de/hinschg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/hinschg/xml.zip",
+      "sourceFile": "BJNR08C0B0023.xml",
+      "sha256": "3d6b1649af5a132bb24f0696103aeac59375a6fe685ca8e574e0c48490cbdefb",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260930215536",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 9 Abs. 1 G v. 25.9.2026 I Nr. 275"
+      ],
+      "fullTitle": "Gesetz für einen besseren Schutz hinweisgebender Personen",
+      "abbreviation": "HinSchG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/hinschg/HinSchG.pdf"
+    },
+    {
+      "id": "geschgehg",
+      "url": "https://www.gesetze-im-internet.de/geschgehg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/geschgehg/xml.zip",
+      "sourceFile": "BJNR046610019.xml",
+      "sha256": "6240774b2b6787d487db0f04d8a244a06bf81930e6dd5d8527a89d9ab6f35aae",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20210128212006",
+      "version": [],
+      "fullTitle": "Gesetz zum Schutz von Geschäftsgeheimnissen",
+      "abbreviation": "GeschGehG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/geschgehg/GeschGehG.pdf"
+    },
+    {
+      "id": "sgb7",
+      "url": "https://www.gesetze-im-internet.de/sgb_7/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/sgb_7/xml.zip",
+      "sourceFile": "BJNR125410996.xml",
+      "sha256": "0656d61d79193d264be5ca420d8847cca07055065c125c207118b6e1a790405f",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260630215548",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 3 G v. 12.5.2026 I Nr. 140"
+      ],
+      "fullTitle": "Siebtes Buch Sozialgesetzbuch - Gesetzliche Unfallversicherung - (Artikel 1 des Gesetzes vom 7. August 1996, BGBl. I S. 1254)",
+      "abbreviation": "SGB 7",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/sgb_7/SGB_7.pdf"
+    },
+    {
+      "id": "sgb9",
+      "url": "https://www.gesetze-im-internet.de/sgb_9_2018/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/sgb_9_2018/xml.zip",
+      "sourceFile": "BJNR323410016.xml",
+      "sha256": "b5bf63f00ed8d1865377c70672924259b553cd88024c91267634f102ae83a427",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260813215516",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 2b G v. 24.7.2026 I Nr. 228"
+      ],
+      "fullTitle": "Sozialgesetzbuch Neuntes Buch – Rehabilitation und Teilhabe von Menschen mit Behinderungen – (Artikel 1 des Gesetzes v. 23. Dezember 2016, BGBl. I S. 3234)",
+      "abbreviation": "SGB IX",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/sgb_9_2018/SGB_IX.pdf"
+    },
+    {
+      "id": "stgb",
+      "url": "https://www.gesetze-im-internet.de/stgb/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/stgb/xml.zip",
+      "sourceFile": "BJNR001270871.xml",
+      "sha256": "2762d32c5254858eafdaa537d715d36e0cafe2803921b3fa6d39f6ad44d9b6c9",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260928220002",
+      "version": [
+        "NeufNeugefasst durch Bek. v. 13.11.1998 I 3322;",
+        "Standzuletzt geändert durch Art. 1 G v. 20.3.2026 I Nr. 95"
+      ],
+      "fullTitle": "Strafgesetzbuch",
+      "abbreviation": "StGB",
+      "excerpt": [
+        "§ 13",
+        "§ 15",
+        "§ 185",
+        "§ 186",
+        "§ 187",
+        "§ 192a",
+        "§ 201",
+        "§ 203",
+        "§ 222",
+        "§ 223",
+        "§ 224",
+        "§ 229",
+        "§ 240",
+        "§ 241"
+      ],
+      "pdfUrl": "https://www.gesetze-im-internet.de/stgb/StGB.pdf"
+    },
+    {
+      "id": "arbschg",
+      "url": "https://www.gesetze-im-internet.de/arbschg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/arbschg/xml.zip",
+      "sourceFile": "BJNR124610996.xml",
+      "sha256": "bf261fccdb25642cac19eaa9640b6aff2c3da2bc4756e2ec0c230684867c28c7",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506174606",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 7 G v. 22.12.2025 I Nr. 369",
+        "SonstÄnderung der Inhaltsübersicht durch Art. 1 Nr. 1 V v. 23.10.2013 I 3882 ist nicht ausführbar, da dieses G keine amtliche Inhaltsübersicht hat"
+      ],
+      "fullTitle": "Gesetz über die Durchführung von Maßnahmen des Arbeitsschutzes zur Verbesserung der Sicherheit und des Gesundheitsschutzes der Beschäftigten bei der Arbeit",
+      "abbreviation": "ArbSchG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/arbschg/ArbSchG.pdf"
+    },
+    {
+      "id": "asig",
+      "url": "https://www.gesetze-im-internet.de/asig/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/asig/xml.zip",
+      "sourceFile": "BJNR018850973.xml",
+      "sha256": "7d4f631401f9b81be4f446bef0d04203bb161ffa0aef4bb68d35be817c7422e9",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175006",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 3 Abs. 5 G v. 20.4.2013 I 868"
+      ],
+      "fullTitle": "Gesetz über Betriebsärzte, Sicherheitsingenieure und andere Fachkräfte für Arbeitssicherheit",
+      "abbreviation": "ASiG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/asig/ASiG.pdf"
+    },
+    {
+      "id": "arbstattv",
+      "url": "https://www.gesetze-im-internet.de/arbst_ttv_2004/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/arbst_ttv_2004/xml.zip",
+      "sourceFile": "BJNR217910004.xml",
+      "sha256": "8e8b37637d7cc8ff445610ffcbbba7ca18728cdad0d05645064063fe68fd3c35",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175741",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 10 G v. 27.3.2024 I Nr. 109"
+      ],
+      "fullTitle": "Verordnung über Arbeitsstätten",
+      "abbreviation": "ArbStättV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/arbst_ttv_2004/ArbStättV.pdf"
+    },
+    {
+      "id": "betrsichv",
+      "url": "https://www.gesetze-im-internet.de/betrsichv_2015/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/betrsichv_2015/xml.zip",
+      "sourceFile": "BJNR004910015.xml",
+      "sha256": "10a7a8d0683c12dba1c06c8f05c666ebfa3450e816c4e57106ea9d205381f46a",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506174513",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 27 G v. 18.12.2025 I Nr. 347",
+        "SonstErsetzt V 805-3-9 v. 27.9.2002 I 3777 (BetrSichV)"
+      ],
+      "fullTitle": "Verordnung über Sicherheit und Gesundheitsschutz bei der Verwendung von Arbeitsmitteln",
+      "abbreviation": "BetrSichV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/betrsichv_2015/BetrSichV.pdf"
+    },
+    {
+      "id": "gefstoffv",
+      "url": "https://www.gesetze-im-internet.de/gefstoffv_2010/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/gefstoffv_2010/xml.zip",
+      "sourceFile": "BJNR164400010.xml",
+      "sha256": "54ceb0811d140757b7aed02b7e032c07bc27bfa3351f0dabb38f91051983bb55",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260512215502",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 1 V v. 17.12.2025 I Nr. 337; 2026 I Nr. 44"
+      ],
+      "fullTitle": "Verordnung zum Schutz vor Gefahrstoffen",
+      "abbreviation": "GefStoffV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/gefstoffv_2010/GefStoffV.pdf"
+    },
+    {
+      "id": "biostoffv",
+      "url": "https://www.gesetze-im-internet.de/biostoffv_2013/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/biostoffv_2013/xml.zip",
+      "sourceFile": "BJNR251410013.xml",
+      "sha256": "cd1d73d15629060b29bdc5d93f45229f88747ada6947bab0758ab6e7596bdb0a",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260515215501",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 2 V v. 11.5.2026 I Nr. 136"
+      ],
+      "fullTitle": "Verordnung über Sicherheit und Gesundheitsschutz bei Tätigkeiten mit Biologischen Arbeitsstoffen",
+      "abbreviation": "BioStoffV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/biostoffv_2013/BioStoffV.pdf"
+    },
+    {
+      "id": "arbmedvv",
+      "url": "https://www.gesetze-im-internet.de/arbmedvv/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/arbmedvv/xml.zip",
+      "sourceFile": "BJNR276810008.xml",
+      "sha256": "a2c41b5346819c2d81ab96d5263e84fc0d94a4f29a52e96d44ed6803688e4f91",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260515215502",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 1 V v. 11.5.2026 I Nr. 136"
+      ],
+      "fullTitle": "Verordnung zur arbeitsmedizinischen Vorsorge",
+      "abbreviation": "ArbMedVV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/arbmedvv/ArbMedVV.pdf"
+    },
+    {
+      "id": "lasthandhabv",
+      "url": "https://www.gesetze-im-internet.de/lasthandhabv/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/lasthandhabv/xml.zip",
+      "sourceFile": "BJNR184200996.xml",
+      "sha256": "c82896222c019ce0bea2d5e4b15702b8abb4d69d805ae2e6c312bbf7a44d98e7",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175547",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 294 V v. 19.6.2020 I 1328"
+      ],
+      "fullTitle": "Verordnung über Sicherheit und Gesundheitsschutz bei der manuellen Handhabung von Lasten bei der Arbeit",
+      "abbreviation": "LasthandhabV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/lasthandhabv/LasthandhabV.pdf"
+    },
+    {
+      "id": "psabv",
+      "url": "https://www.gesetze-im-internet.de/psa-bv/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/psa-bv/xml.zip",
+      "sourceFile": "BJNR184110996.xml",
+      "sha256": "d2d0227d2bebbe69e441a046157eeb719b7bf592c9bef309d0164819972611e5",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20250127224021",
+      "version": [
+        "Stand: Geändert durch Art. 2 V v. 2.12.2024 I Nr. 384"
+      ],
+      "fullTitle": "Verordnung über Sicherheit und Gesundheitsschutz bei der Benutzung persönlicher Schutzausrüstungen bei der Arbeit",
+      "abbreviation": "PSA-BV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/psa-bv/PSA-BV.pdf"
+    },
+    {
+      "id": "laermvibr",
+      "url": "https://www.gesetze-im-internet.de/l_rmvibrationsarbschv/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/l_rmvibrationsarbschv/xml.zip",
+      "sourceFile": "BJNR026110007.xml",
+      "sha256": "b6257999ff5481854e749586ed229c2b5246ae707525ff7d14df5be7b8c10d91",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20210930213038",
+      "version": [
+        "Stand: Zuletzt geändert durch Art. 3 V v. 21.7.2021 I 3115"
+      ],
+      "fullTitle": "Verordnung zum Schutz der Beschäftigten vor Gefährdungen durch Lärm und Vibrationen",
+      "abbreviation": "LärmVibrationsArbSchV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/l_rmvibrationsarbschv/LärmVibrationsArbSchV.pdf"
+    },
+    {
+      "id": "kindarbschv",
+      "url": "https://www.gesetze-im-internet.de/kindarbschv/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/kindarbschv/xml.zip",
+      "sourceFile": "BJNR150800998.xml",
+      "sha256": "b14a95fd23de9496e94054ad2ecb3a8e49a1271ee436f9425e047689bdba193a",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20130405131515",
+      "version": [],
+      "fullTitle": "Verordnung über den Kinderarbeitsschutz",
+      "abbreviation": "KindArbSchV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/kindarbschv/KindArbSchV.pdf"
+    },
+    {
+      "id": "jarbschuv",
+      "url": "https://www.gesetze-im-internet.de/jarbschuv/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/jarbschuv/xml.zip",
+      "sourceFile": "BJNR022210990.xml",
+      "sha256": "1e71c69ee99abaa1bf49b7b1c01177ba9ad12fd099a2cd16111e977b88939197",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260506175025",
+      "version": [
+        "Stand: Geändert durch Art. 19 V v. 11.12.2024 I Nr. 411"
+      ],
+      "fullTitle": "Verordnung über die ärztlichen Untersuchungen nach dem\nJugendarbeitsschutzgesetz",
+      "abbreviation": "JArbSchUV",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/jarbschuv/JArbSchUV.pdf"
+    },
+    {
+      "id": "ifsg",
+      "url": "https://www.gesetze-im-internet.de/ifsg/",
+      "xmlUrl": "https://www.gesetze-im-internet.de/ifsg/xml.zip",
+      "sourceFile": "BJNR104510000.xml",
+      "sha256": "c1a2e8a0737eff36b0dde9c720ea7907caa7840e9387cd8baf6106d023133d1c",
+      "retrieved": "2026-11-04",
+      "sourceBuildDate": "20260703215504",
+      "version": [
+        "Stand Zuletzt geändert durch Art. 3 Abs. 1 G v. 4.3.2026 I Nr. 60",
+        "Hinweis Änderung durch Art. 7 G v. 26.6.2026 I Nr. 195 textlich nachgewiesen, dokumentarisch noch nicht abschließend bearbeitet"
+      ],
+      "fullTitle": "Gesetz zur Verhütung und Bekämpfung von Infektionskrankheiten beim Menschen",
+      "abbreviation": "IfSG",
+      "excerpt": null,
+      "pdfUrl": "https://www.gesetze-im-internet.de/ifsg/IfSG.pdf"
+    }
+  ]
+}

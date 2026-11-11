@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1793800789942,
+      "tag": "0000_wandering_kylun",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1793883825580,
+      "tag": "0001_burly_silk_fever",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1793885008545,
+      "tag": "0002_married_aqueduct",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1793984305657,
+      "tag": "0003_last_wallflower",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1794081780374,
+      "tag": "0004_smart_mongu",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1794398532456,
+      "tag": "0005_workable_vance_astro",
+      "breakpoints": true
+    }
+  ]
+}

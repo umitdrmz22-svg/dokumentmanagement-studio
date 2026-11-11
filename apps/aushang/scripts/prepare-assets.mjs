@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const original=new Map(JSON.parse(fs.readFileSync('legal/law-metadata.json','utf8')).map(x=>[x.id,x]));
+const collection=JSON.parse(fs.readFileSync('legal/collection.json','utf8'));
+const base='https://www.gesetze-im-internet.de/';
+const catalog=collection.map((item,index)=>({icon:'file',color:['green','blue','pink','purple','orange'][index%5],provider:'Gesetze im Internet',url:base+item.slug+'/',basisUrl:base+item.slug+'/',basis:'Ergänzende Gesetzessammlung',scope:'Ergänzende Rechtsinformation. Die Aufnahme in diese Textsammlung bedeutet keine allgemeine eigenständige Aushangpflicht.',notice:'Anwendbarkeit und konkrete Bekanntmachungs- oder Zugangspflichten sind anhand der betrieblichen Verhältnisse und der jeweiligen Vorschrift festzustellen.',...original.get(item.id),...item,localText:true}));
+const bgn=JSON.parse(fs.readFileSync('legal/bgn-manifest.json','utf8'));
+for(const [index,name,title] of [[1,'Grundsätze der Prävention','Grundsätze der Prävention'],[2,'Betriebsärztinnen und Betriebsärzte sowie Fachkräfte für Arbeitssicherheit','Betriebsärztinnen und Betriebsärzte sowie Fachkräfte für Arbeitssicherheit'],[3,'Elektrische Anlagen und Betriebsmittel','Elektrische Anlagen und Betriebsmittel']]){
+ const id='dguv'+index,source=bgn.find(x=>x.id===id);catalog.push({...original.get(id),id,short:'DGUV V'+index,title,description:name,category:'Arbeitsschutz',group:'BGN · Unfallverhütung',icon:'shield',color:'green',provider:'BGN',url:source.source,basisUrl:source.source,basis:'§ 12 DGUV Vorschrift 1',scope:'Trägerspezifische Fassung der Berufsgenossenschaft Nahrungsmittel und Gastgewerbe.',notice:'Die einschlägigen Unfallverhütungsvorschriften und Regeln sind zugänglich zu machen.',localPdf:true});
+}
+const groups=['Aushang & Bekanntmachung','Weitere Arbeitsgesetze','Arbeitsschutz & Prävention','Branchenspezifische Texte','BGN · Unfallverhütung'];catalog.sort((a,b)=>groups.indexOf(a.group)-groups.indexOf(b.group));
+for(const c of catalog){c.scope='Die konkrete Anwendbarkeit richtet sich nach der jeweils eingeblendeten Quellenfassung und den Verhältnissen des Betriebs.';c.notice='Soweit eine Bekanntmachungs- oder Zugangspflicht besteht, ist sie anhand der gesetzlichen Vorschrift betrieblich umzusetzen. Betriebsspezifische Bekanntmachungen stellt der Arbeitgeber gesondert bereit.';delete c.keywords;delete c.related;}
+const snapshots=Object.fromEntries(fs.readdirSync('legal/snapshots').filter(x=>x.endsWith('.json')).map(name=>[name.slice(0,-5),JSON.parse(fs.readFileSync(path.join('legal/snapshots',name),'utf8'))]));
+fs.mkdirSync('server',{recursive:true});fs.writeFileSync('server/generated-legal.ts','// Generated from tracked official-source snapshots.\nexport const catalog='+JSON.stringify(catalog)+';\nexport const initialTexts:Record<string,any>='+JSON.stringify(snapshots)+';\nexport const initialBgn='+JSON.stringify(bgn)+';\n');
+const assets={};for(const file of fs.readdirSync('web')){const p=path.join('web',file);if(!fs.statSync(p).isFile())continue;const binary=/\.(png|jpg)$/.test(file);assets['/'+file]={binary,body:fs.readFileSync(p,binary?'base64':'utf8')};}
+fs.writeFileSync('server/generated-assets.ts','// Generated from tracked web source.\nexport const assets:Record<string,{binary:boolean,body:string}>='+JSON.stringify(assets)+';\n');
+console.log(`Prepared ${catalog.length} titles, ${Object.keys(snapshots).length} text snapshots and ${Object.keys(assets).length} web assets.`);

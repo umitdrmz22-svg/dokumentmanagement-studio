@@ -1,0 +1,17 @@
+[
+  {
+    "id": "dguv1",
+    "source": "https://www.bgn.de/praevention-arbeitshilfen/praxishilfen-service/vorschriften-und-arbeitssicherheitsinformationen/unfallverhuetungsvorschriften/DGUV-Vorschrift-1.pdf",
+    "sha256": "47df7b15cb8f4347e33e397ed7ce1d21db9ef2ab79b5915bf541e03bfc2f36b0"
+  },
+  {
+    "id": "dguv2",
+    "source": "https://www.bgn.de/praevention-arbeitshilfen/praxishilfen-service/vorschriften-und-arbeitssicherheitsinformationen/unfallverhuetungsvorschriften/DGUV_Vorschrift_2.pdf",
+    "sha256": "bbcdda1bad069568db092cd41d8d923c053e811e0cc41e15a1589f9da07420eb"
+  },
+  {
+    "id": "dguv3",
+    "source": "https://www.bgn.de/praevention-arbeitshilfen/praxishilfen-service/vorschriften-und-arbeitssicherheitsinformationen/unfallverhuetungsvorschriften/DGUV_Vorschrift_3-1.pdf",
+    "sha256": "38ad7c2b77fde8094832b2d30c26742d41fdc513c92fe1d7fa6465b83f79dd34"
+  }
+]
