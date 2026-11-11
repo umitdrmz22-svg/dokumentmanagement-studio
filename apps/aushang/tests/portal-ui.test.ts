@@ -7,16 +7,16 @@ import {setup,request,site,cookie,grantForTest} from './helpers';
 // Run the actual browser controller against the real API with a minimal DOM adapter.
 // No production account, password, device key or document is created by these tests.
 async function client(app:ReturnType<typeof setup>,session='',hash='',deviceId:string|null=null){
- const listeners:Record<string,Function[]>={},calls:string[]=[],copied:string[]=[],nodes=new Map<string,any>();let currentCookie=session;
+ const listeners:Record<string,Function[]>={},calls:string[]=[],copied:string[]=[],nodes=new Map<string,any>();let currentCookie=session;let intercept:((path:string,result:Response)=>Promise<Response>)|null=null;
  const node=(id:string)=>{if(!nodes.has(id))nodes.set(id,{innerHTML:'',textContent:'',hidden:false,value:'',classList:{add(){},remove(){},toggle(){}},addEventListener(){},scrollIntoView(){},focus(){},showModal(){},close(){},querySelector(){return null;}});return nodes.get(id);};
  const root=node('#app'),location={hash,href:'https://portal.example/'+hash},history={pushState(_a:any,_b:any,h:string){location.hash=h;},replaceState(_a:any,_b:any,h:string){location.hash=h;}};
  const document={title:'',querySelector(selector:string){if(['#app','#update-bar','#update-date','#update-policy','#dialog','#dialog-close','#dialog-content','#dialog-eyebrow','#toast'].includes(selector))return node(selector);if(selector.startsWith('#')&&(root.innerHTML+node('#dialog-content').innerHTML).includes('id="'+selector.slice(1)+'"'))return node(selector);return null;},querySelectorAll(){return [];},addEventListener(type:string,fn:Function){(listeners[type]??=[]).push(fn);},getElementById(id:string){return node('#'+id);}};
  const window={AushangDevice:{activeId:deviceId,async unlock(){},async hasKey(){return false;},url(id:string){return '/geraet/'+id;}},addEventListener(){},scrollTo(){},open(){}};
- const context={document,window,location,history,navigator:{clipboard:{async writeText(value:string){copied.push(value);}}},localStorage:{removeItem(){}},setTimeout:(fn:Function,ms:number)=>{const t=setTimeout(fn as ()=>void,ms);t.unref();return t;},clearTimeout,setInterval:(fn:Function,ms:number)=>{const t=setInterval(fn as ()=>void,ms);t.unref();return t;},clearInterval,URL,FormData:class{constructor(private form:any){}get(key:string){return this.form.values[key]??null;}[Symbol.iterator](){return Object.entries(this.form.values)[Symbol.iterator]();}},fetch:async(path:string,options:any={})=>{calls.push(path);const result=await app.api(request(path,options.method||'GET',options.body?JSON.parse(options.body):undefined,currentCookie));const set=cookie(result);if(set)currentCookie=set;return result;}};
+ const context={document,window,location,history,navigator:{clipboard:{async writeText(value:string){copied.push(value);}}},localStorage:{removeItem(){}},setTimeout:(fn:Function,ms:number)=>{const t=setTimeout(fn as ()=>void,ms);t.unref();return t;},clearTimeout,setInterval:(fn:Function,ms:number)=>{const t=setInterval(fn as ()=>void,ms);t.unref();return t;},clearInterval,URL,FormData:class{constructor(private form:any){}get(key:string){return this.form.values[key]??null;}[Symbol.iterator](){return Object.entries(this.form.values)[Symbol.iterator]();}},fetch:async(path:string,options:any={})=>{calls.push(path);const result=await app.api(request(path,options.method||'GET',options.body?JSON.parse(options.body):undefined,currentCookie));const set=cookie(result);if(set)currentCookie=set;return intercept?await intercept(path,result):result;}};
  vm.runInNewContext(readFileSync(new URL('../web/app.js',import.meta.url),'utf8'),context);
  for(let i=0;i<400&&(!root.innerHTML||root.innerHTML.includes('Firmenzugang wird geöffnet.'));i++)await new Promise(r=>setTimeout(r,5));assert.ok(root.innerHTML,'client initialized');
  const eventButton=(dataset:any)=>({dataset,isConnected:true,disabled:false});
- return {root,calls,copied,location,node,document,async click(dataset:any){const button=eventButton(dataset);await Promise.all((listeners.click||[]).map(fn=>fn({target:{closest:()=>button},preventDefault(){}})));},async submit(id:string,values:Record<string,string>={},dataset:Record<string,string>={}){const button=eventButton({});await Promise.all((listeners.submit||[]).map(fn=>fn({target:{id,values,dataset,querySelector:()=>button},submitter:{value:'portal'},preventDefault(){}})));}};
+ return {root,calls,copied,location,node,document,setInterceptor(fn:typeof intercept){intercept=fn;},async click(dataset:any){const button=eventButton(dataset);await Promise.all((listeners.click||[]).map(fn=>fn({target:{closest:()=>button},preventDefault(){}})));},async submit(id:string,values:Record<string,string>={},dataset:Record<string,string>={}){const button=eventButton({});await Promise.all((listeners.submit||[]).map(fn=>fn({target:{id,values,dataset,querySelector:()=>button},submitter:{value:'portal'},preventDefault(){}})));}};
 }
 async function registered(name:string){const app=setup(),password='UI-test lange Passphrase!';const r=await app.api(request('/api/auth/register','POST',{...site,username:name,password}));grantForTest(app.sql,name);return {app,password,session:cookie(r)};}
 
@@ -68,4 +68,37 @@ test('permanent own-site manager adds, edits and shares BV links without compute
  await page.click({bvAction:'edit',id});await page.submit('bv-link-form',{title:'BV Arbeitszeit aktuell',url:'https://company.example/BV-v2.pdf',version:'2027',published:'on'},{id});assert.ok(page.root.innerHTML.includes('BV Arbeitszeit aktuell'));
  await page.click({bvAction:'delete',id});assert.ok(!page.root.innerHTML.includes('BV Arbeitszeit aktuell'));await page.click({bvAction:'trash'});assert.ok(page.root.innerHTML.includes('BV Arbeitszeit aktuell'));await page.click({bvAction:'restore',id});await page.click({bvAction:'active'});assert.ok(page.root.innerHTML.includes('BV Arbeitszeit aktuell'));
  await page.click({action:'logout'});assert.ok(!page.root.innerHTML.includes('BV Arbeitszeit aktuell'));assert.ok(!page.root.innerHTML.includes('BV-Link hinzufügen'));
+});
+
+test('Angaben neu laden awaits a fresh published response and reports success without publishing a draft',async()=>{
+ const {app,session}=await registered('ui-reload-notices');const page=await client(app,session);await page.click({view:'site'});
+ const state=await(await app.api(request('/api/site-notices','GET',undefined,session))).json() as any;
+ state.draft.agg.text='Beschwerdestelle Personalabteilung, Raum 12';
+ assert.equal((await app.api(request('/api/site-notices','PUT',{revision:0,notices:state.draft},session))).status,200);
+ assert.equal((await app.api(request('/api/site-notices/publish','POST',{revision:1,authorized:true},session))).status,200);
+ const count=page.calls.filter(p=>p==='/api/site-notices').length;
+ await page.click({kioskAction:'reload-notices'});
+ assert.equal(page.calls.filter(p=>p==='/api/site-notices').length,count+1);
+ assert.ok(page.root.innerHTML.includes('Beschwerdestelle Personalabteilung, Raum 12'));
+ assert.equal(page.node('#toast').textContent,'Werkangaben neu geladen.');
+ state.draft.agg.text='Unveröffentlichter nächster Entwurf';
+ await app.api(request('/api/site-notices','PUT',{revision:2,notices:state.draft},session));
+ await page.click({kioskAction:'reload-notices'});
+ assert.ok(page.root.innerHTML.includes('Beschwerdestelle Personalabteilung, Raum 12'));assert.ok(!page.root.innerHTML.includes('Unveröffentlichter nächster Entwurf'));
+});
+
+
+test('manual notice reload supersedes a pending older response; failures show a message and preserve published information',async()=>{
+ const {app,session}=await registered('ui-reload-race');const page=await client(app,session);await page.click({view:'site'});
+ const state=await(await app.api(request('/api/site-notices','GET',undefined,session))).json() as any;
+ state.draft.agg.text='Aktuelle veröffentlichte Werkangabe';await app.api(request('/api/site-notices','PUT',{revision:0,notices:state.draft},session));await app.api(request('/api/site-notices/publish','POST',{revision:1,authorized:true},session));
+ let release:(value:Response)=>void=()=>{};let started=false;
+ page.setInterceptor(async(path,response)=>{if(path==='/api/site-notices'&&!started){started=true;return new Promise<Response>(resolve=>{release=resolve;});}return response;});
+ const pending=page.click({kioskAction:'reload-notices'});for(let i=0;i<100&&!started;i++)await new Promise(r=>setTimeout(r,5));assert.ok(started);
+ await page.click({kioskAction:'reload-notices'});assert.ok(page.root.innerHTML.includes('Aktuelle veröffentlichte Werkangabe'));
+ release(new Response(JSON.stringify({...state,published:{...state.published,agg:{status:'applicable',text:'Veraltete Antwort'}}}),{headers:{'Content-Type':'application/json'}}));await pending;
+ assert.ok(page.root.innerHTML.includes('Aktuelle veröffentlichte Werkangabe'));assert.ok(!page.root.innerHTML.includes('Veraltete Antwort'));
+ page.setInterceptor(async(path,response)=>{if(path==='/api/site-notices')throw Error('Verbindung unterbrochen. Bitte erneut versuchen.');return response;});
+ await page.click({kioskAction:'reload-notices'});assert.match(page.node('#toast').textContent,/Verbindung unterbrochen/);assert.ok(page.root.innerHTML.includes('Aktuelle veröffentlichte Werkangabe'));
+ page.setInterceptor(null);await page.click({kioskAction:'reload-notices'});assert.equal(page.node('#toast').textContent,'Werkangaben neu geladen.');
 });
