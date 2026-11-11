@@ -18,3 +18,5 @@ body:has(.portal-main){--ink:#1d3036;--muted:#6b7475;--line:#d9dad3;--blue:#2848
 
 .portal-main .law-text{color:#253b3c}.portal-main .notice-details{font-size:12px}.portal-main .notice-details summary{font-size:11px}.portal-main .rail-filters button{font-size:12px}.portal-main .werk-notice small{font-size:10px;color:#727569}.portal-main .werk-notice.missing small{color:#8b6332}.portal-main .law-subline{font-size:10px}.portal-main .law-access>a,.portal-main .law-access>button{font-size:10px}.portal-main .source-description{font-size:12px}.portal-main .edition-module p{font-size:12px}.portal-main .notice-body{color:#253b3c}.portal-main .notice-edit p,.portal-main .backup-guidance p,.portal-main .publish-panel p{color:#64706b}
 body:has(.portal-main) .update-bar{color:#d5dcd9}
+
+.bv-settings{margin:22px 0;padding:17px;border:1px solid var(--line);background:#fafaf5}.bv-settings summary{cursor:pointer;font-size:13px;font-weight:600}.bv-settings form{margin-top:20px}.bv-settings .check-label{margin:16px 0;font-size:12px}#bv-link-form .check-label{margin:16px 0;line-height:1.8;font-size:12px}

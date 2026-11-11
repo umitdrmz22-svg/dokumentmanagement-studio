@@ -36,6 +36,13 @@
       "when": 1794081780374,
       "tag": "0004_smart_mongu",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1794398532456,
+      "tag": "0005_workable_vance_astro",
+      "breakpoints": true
     }
   ]
 }

@@ -89,3 +89,12 @@ Automatisierte Tests prüfen Passwortschutz, Pflichtfelder, Cookies, Origin-Prü
 ## Quellen
 
 Gesetzestexte: [Gesetze im Internet](https://www.gesetze-im-internet.de/), DGUV-Fassungen: [BGN](https://www.bgn.de/praevention-arbeitshilfen/praxishilfen-service/vorschriften-und-arbeitssicherheitsinformationen/unfallverhuetungsvorschriften). Ausgangsabruf 04.11.2026; spätere erfolgreiche Laufzeit-Aktualisierungen sind in der Datenbank und der Datumsleiste dokumentiert. Der Sammlungsumfang orientiert sich an handelsüblichen Aushangbüchern mit ergänzenden Vorschriften. Es werden keine kommerziellen Verlagserläuterungen übernommen.
+
+
+## Unbefristeter eigener Werkzugang und BV-Verknüpfungen
+
+`get_customer_access` liest ausschließlich das genau angegebene Konto. `grant_permanent_access` setzt eine ausdrücklich bestätigte unentgeltliche Dauerfreigabe ohne künstliches Ablaufdatum. `enableOwnSiteEditing` aktiviert dabei den eigenen Dokumenten- und BV-Bereich. Die Aktion bestätigt oder vereinnahmt keine Zahlung und vergibt keine Betreiberrechte. Passwörter, Werkzuordnung, Favoriten und bestehende Gerätezugänge bleiben erhalten. Dieselben begrenzten Aktionen stehen mit der bestehenden Dienstberechtigung als `customer-get` und `customer-permanent` bereit. Alle bleiben ausschließlich dem Betreiber zugänglich. Normale Konten können weder diese Verwaltung verwenden noch andere Kunden abfragen.
+
+Nach Passwortanmeldung können Werkverantwortliche BV-Titel, HTTPS-Link, Version und Veröffentlichung verwalten, Links kopieren und Papierkorbeinträge wiederherstellen. Es werden nur Verknüpfungen gespeichert; die BV-Dateien bleiben im Zielsystem. Veröffentlichte Links können im selben angemeldeten Werkzugang geöffnet und kopiert werden, auch im bestehenden lesenden Gerätezugang. Eine zusätzliche BV-Gerätefreigabe wird nicht verlangt. Entwürfe und Bearbeitung bleiben passwortgeschützt. Fremde Konten erhalten auch bei bekannter Link-ID keinen Zugriff. Der Server lädt oder spiegelt die Zieldateien nicht.
+
+Das Portal erteilt keine Berechtigung im Zielsystem. Ein kopierter Firmenlink ist nur dann außerhalb der Firma unbrauchbar, wenn das Zielsystem dies erzwingt. Bei SharePoint sind Organisations- oder Personenlinks passend zu berechtigen; anonyme „Anyone“-Links gewähren jedem Linkinhaber Zugriff. Quelle: [Microsoft: Sharing and permissions](https://learn.microsoft.com/en-us/sharepoint/modern-experience-sharing-permissions#shareable-links). Die zeitliche Dauerfreigabe hebt vorhandene Mengen- und Speichergrenzen nicht auf.
